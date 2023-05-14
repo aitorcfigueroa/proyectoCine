@@ -1,10 +1,9 @@
-import java.util.ArrayList;
-import java.util.List;
+package clases;
 
 public class Cine {
+    int idCine;
     String nombre_cine;
     double precio;
-    List<Sala> salas = new ArrayList<Sala>();
 
     public Cine(String nombre_cine, double precio) {
         this.nombre_cine = nombre_cine;
@@ -13,6 +12,14 @@ public class Cine {
 
     public String getNombre_cine() {
         return nombre_cine;
+    }
+
+    public int getIdCine() {
+        return idCine;
+    }
+
+    public void setIdCine(int idCine) {
+        this.idCine = idCine;
     }
 
     public void setNombre_cine(String nombre_cine) {
@@ -25,17 +32,5 @@ public class Cine {
 
     public void setPrecio(double precio) {
         this.precio = precio;
-    }
-
-    public List<Sala> getSalas() {
-        return salas;
-    }
-
-    public void setSalas(List<Sala> salas) {
-        this.salas = salas;
-    }
-
-    public void addSala(Sala sala) {
-        this.salas.add(sala);
     }
 }
