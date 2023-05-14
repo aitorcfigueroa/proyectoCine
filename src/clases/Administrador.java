@@ -1,4 +1,6 @@
-public class Administrador extends Usuario{
+package clases;
+
+public class Administrador extends Usuario {
     public boolean agregarCine() {
         return true;
     }

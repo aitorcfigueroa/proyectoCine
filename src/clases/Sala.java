@@ -1,3 +1,5 @@
+package clases;
+
 import java.util.Arrays;
 
 public class Sala {
