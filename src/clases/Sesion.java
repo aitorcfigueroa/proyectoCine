@@ -13,6 +13,15 @@ public class Sesion {
     LocalTime hora;
     Map<String, ArrayList<Boolean>> butacas;
 
+    public Sesion(int idSesion, int idSala, int idPelicula, LocalDate fecha, LocalTime hora, Map<String, ArrayList<Boolean>> butacas) {
+        this.idSesion = idSesion;
+        this.idSala = idSala;
+        this.idPelicula = idPelicula;
+        this.fecha = fecha;
+        this.hora = hora;
+        this.butacas = butacas;
+    }
+
     public int getIdSesion() {
         return idSesion;
     }
