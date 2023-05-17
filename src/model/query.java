@@ -2,6 +2,7 @@ package model;
 
 import clases.Cine;
 import clases.Pelicula;
+import clases.Sesion;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -85,7 +86,7 @@ public class query {
      * @param fecha Fecha que se busca.
      * @return lista de sesiones disponibles.
      */
-    public static ArrayList<> sesiones(String nombre, LocalDate fecha) {
+    public static ArrayList<Sesion> sesiones(String nombre, LocalDate fecha) {
         Cine cine = cine(nombre);
 
         Connection conexion = dbconnection.conexion();
@@ -95,35 +96,39 @@ public class query {
         int idSesion;
         int idSala;
         int idPelicula;
-        LocalDate fecha;
+        LocalDate fechaBD;
         LocalTime hora;
         Map butacas;
+        ArrayList<Sesion> sesionArrayList = new ArrayList<Sesion>();
 
         try {
             assert conexion != null;
             seleccion = conexion.createStatement();
             resultado = seleccion.executeQuery(texto_seleccion);
             while(resultado.next()){
-                // TODO: Crear una lista con las sesiones disponibles en el día.
                 idSesion = resultado.getInt("idSesion");
                 idSala = resultado.getInt("idSala");
                 idPelicula = resultado.getInt("idPelicula");
-                fecha = resultado.getDate("fecha").toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                fechaBD = resultado.getDate("fecha").toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
                 hora = resultado.getTime("hora").toInstant().atZone(ZoneId.systemDefault()).toLocalTime();
                 String sitios = resultado.getString("butacas");
                 ObjectMapper objectMapper = new ObjectMapper();
 
                 butacas = objectMapper.readValue(sitios, Map.class);
+
+                Sesion sesion = new Sesion(idSesion, idSala, idPelicula, fechaBD, hora, butacas);
+                sesionArrayList.add(sesion);
             }
             resultado.close();
         } catch (SQLException e) {
             System.out.println("Error a la hora de consultar la tabla");
             System.out.println(e.getLocalizedMessage());
+            return null;
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
         closeConection(conexion);
-        return null;
+        return sesionArrayList;
     }
 
     public static Pelicula pelicula(int id) {
