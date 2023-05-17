@@ -21,7 +21,7 @@ import static model.dbconnection.closeConection;
 
 public class query {
     public static void main(String[] args) {
-        Pelicula test = pelicula(2);
+        Pelicula test = pelicula(6);
         System.out.println(test.getTitulo());
         System.out.println(test.getGenero().get(2));
     }
@@ -133,6 +133,11 @@ public class query {
         return sesionArrayList;
     }
 
+    /**
+     * Método para recuperar una película.
+     * @param id el id de la película
+     * @return devuelve una película si la encuentra o null.
+     */
     public static Pelicula pelicula(int id) {
         Connection conexion = dbconnection.conexion();
         Statement seleccion = null;
@@ -160,7 +165,7 @@ public class query {
             }
             resultado.close();
         } catch (SQLException e) {
-            System.out.println("Error a la hora de consultar la tabla");
+            System.out.println("Error a la hora de consultar la tabla, puede que la película no exista.");
             System.out.println(e.getLocalizedMessage());
             return null;
         }
