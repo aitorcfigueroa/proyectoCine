@@ -98,6 +98,7 @@ public class query {
         int idSesion;
         int idSala;
         int idPelicula;
+        Pelicula pelicula;
         LocalDate fechaBD;
         LocalTime hora;
         Map butacas;
@@ -111,14 +112,20 @@ public class query {
                 idSesion = resultado.getInt("idSesion");
                 idSala = resultado.getInt("idSala");
                 idPelicula = resultado.getInt("idPelicula");
+
+                pelicula = pelicula(idPelicula);
+
                 fechaBD = resultado.getDate("fecha").toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
                 hora = resultado.getTime("hora").toInstant().atZone(ZoneId.systemDefault()).toLocalTime();
+
+
+
                 String sitios = resultado.getString("butacas");
                 ObjectMapper objectMapper = new ObjectMapper();
 
                 butacas = objectMapper.readValue(sitios, Map.class);
 
-                Sesion sesion = new Sesion(idSesion, idSala, idPelicula, fechaBD, hora, butacas);
+                Sesion sesion = new Sesion(idSesion, idSala, pelicula, fechaBD, hora, butacas);
                 sesionArrayList.add(sesion);
             }
             resultado.close();
