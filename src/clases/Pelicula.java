@@ -1,21 +1,42 @@
 package clases;
 
-import java.awt.*;
+import java.util.ArrayList;
 
 public class Pelicula {
+    int idPelicula;
     String titulo;
-    Image portada;
     String director;
+    int año;
     int duracion;
-    String clasificacionPG;
-    String genero;
+    int edad;
+    ArrayList<String> genero;
     String sinopsis;
 
-    public Pelicula(String titulo, String director, int duracion, String clasificacionPG) {
+    public Pelicula(String titulo, String director, int año, int duracion, int edad) {
         this.titulo = titulo;
         this.director = director;
+        this.año = año;
         this.duracion = duracion;
-        this.clasificacionPG = clasificacionPG;
+        this.edad = edad;
+    }
+
+    public Pelicula(int idPelicula, String titulo, String director, int año, int duracion, int edad, ArrayList<String> genero, String sinopsis) {
+        this.idPelicula = idPelicula;
+        this.titulo = titulo;
+        this.director = director;
+        this.año = año;
+        this.duracion = duracion;
+        this.edad = edad;
+        this.genero = genero;
+        this.sinopsis = sinopsis;
+    }
+
+    public int getIdPelicula() {
+        return idPelicula;
+    }
+
+    public void setIdPelicula(int idPelicula) {
+        this.idPelicula = idPelicula;
     }
 
     public String getTitulo() {
@@ -26,20 +47,20 @@ public class Pelicula {
         this.titulo = titulo;
     }
 
-    public Image getPortada() {
-        return portada;
-    }
-
-    public void setPortada(Image portada) {
-        this.portada = portada;
-    }
-
     public String getDirector() {
         return director;
     }
 
     public void setDirector(String director) {
         this.director = director;
+    }
+
+    public int getAño() {
+        return año;
+    }
+
+    public void setAño(int año) {
+        this.año = año;
     }
 
     public int getDuracion() {
@@ -50,19 +71,19 @@ public class Pelicula {
         this.duracion = duracion;
     }
 
-    public String getClasificacionPG() {
-        return clasificacionPG;
+    public int getEdad() {
+        return edad;
     }
 
-    public void setClasificacionPG(String clasificacionPG) {
-        this.clasificacionPG = clasificacionPG;
+    public void setEdad(int edad) {
+        this.edad = edad;
     }
 
-    public String getGenero() {
+    public ArrayList<String> getGenero() {
         return genero;
     }
 
-    public void setGenero(String genero) {
+    public void setGenero(ArrayList<String> genero) {
         this.genero = genero;
     }
 
