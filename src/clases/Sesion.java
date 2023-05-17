@@ -8,15 +8,15 @@ import java.util.Map;
 public class Sesion {
     int idSesion;
     int idSala;
-    int idPelicula;
+    Pelicula pelicula;
     LocalDate fecha;
     LocalTime hora;
     Map<String, ArrayList<Boolean>> butacas;
 
-    public Sesion(int idSesion, int idSala, int idPelicula, LocalDate fecha, LocalTime hora, Map<String, ArrayList<Boolean>> butacas) {
+    public Sesion(int idSesion, int idSala, Pelicula pelicula, LocalDate fecha, LocalTime hora, Map<String, ArrayList<Boolean>> butacas) {
         this.idSesion = idSesion;
         this.idSala = idSala;
-        this.idPelicula = idPelicula;
+        this.pelicula = pelicula;
         this.fecha = fecha;
         this.hora = hora;
         this.butacas = butacas;
@@ -38,12 +38,12 @@ public class Sesion {
         this.idSala = idSala;
     }
 
-    public int getIdPelicula() {
-        return idPelicula;
+    public Pelicula getPelicula() {
+        return pelicula;
     }
 
-    public void setIdPelicula(int idPelicula) {
-        this.idPelicula = idPelicula;
+    public void setPelicula(Pelicula pelicula) {
+        this.pelicula = pelicula;
     }
 
     public LocalDate getFecha() {
