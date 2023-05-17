@@ -4,7 +4,6 @@ import clases.Cine;
 import clases.Pelicula;
 import clases.Sesion;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.sql.Connection;
@@ -15,13 +14,16 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 
 import static model.dbconnection.closeConection;
 
 public class query {
     public static void main(String[] args) {
-        Cine test = cine("Castelao");
+        Pelicula test = pelicula(2);
+        System.out.println(test.getTitulo());
+        System.out.println(test.getGenero().get(2));
     }
 
     /**
@@ -136,21 +138,33 @@ public class query {
         Statement seleccion = null;
         String texto_seleccion = "select * from peliculas where idPelicula = '" + id + "'";
         ResultSet resultado = null;
+        Pelicula nuevaPelicula = null;
 
         try {
             assert conexion != null;
             seleccion = conexion.createStatement();
             resultado = seleccion.executeQuery(texto_seleccion);
             while(resultado.next()){
-                // TODO: Crear una lista con las sesiones disponibles en el día.
+                int idPelicula = resultado.getInt("idPelicula");
+                String titulo = resultado.getString("titulo");
+                String director = resultado.getString("director");
+                int año = resultado.getInt("año");
+                int duracion = resultado.getInt("duracion");
+                int edad = resultado.getInt("Edad");
+                String generos = resultado.getString("genero");
+                String sinopsis = resultado.getString("sinopsis");
 
+                ArrayList<String> genero = new ArrayList<>(Arrays.asList(generos.split(",")));
+
+                nuevaPelicula = new Pelicula(idPelicula, titulo, director, año, duracion, edad, genero, sinopsis);
             }
             resultado.close();
         } catch (SQLException e) {
             System.out.println("Error a la hora de consultar la tabla");
             System.out.println(e.getLocalizedMessage());
+            return null;
         }
         closeConection(conexion);
-        return null;
+        return nuevaPelicula;
     }
 }
