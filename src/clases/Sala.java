@@ -1,14 +1,24 @@
 package clases;
 
 public class Sala {
+    int idSala;
     String nombre_sala;
     int filas;
     int columnas;
 
-    public Sala(String nombre_sala, int filas, int columnas) {
+    public Sala(int idSala, String nombre_sala, int filas, int columnas) {
+        this.idSala = idSala;
         this.nombre_sala = nombre_sala;
         this.filas = filas;
         this.columnas = columnas;
+    }
+
+    public int getIdSala() {
+        return idSala;
+    }
+
+    public void setIdSala(int idSala) {
+        this.idSala = idSala;
     }
 
     public String getNombre_sala() {
