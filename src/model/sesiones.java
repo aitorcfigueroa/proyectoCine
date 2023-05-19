@@ -17,8 +17,8 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import static model.dbconnection.closeConection;
-import static model.query.cine;
-import static model.query.pelicula;
+import static model.cines.cine;
+import static model.cines.pelicula;
 import static model.salas.getListaSalas;
 
 public class sesiones {
