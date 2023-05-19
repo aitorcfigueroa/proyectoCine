@@ -1,6 +1,5 @@
 package model;
 
-import clases.Cine;
 import clases.Sala;
 
 import java.sql.Connection;

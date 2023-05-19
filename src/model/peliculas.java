@@ -17,7 +17,7 @@ public class peliculas {
      * @param id el id de la película
      * @return devuelve una película si la encuentra o null.
      */
-    public static Pelicula pelicula(int id) {
+    public static Pelicula getPelicula(int id) {
         Connection conexion = dbconnection.conexion();
         Statement seleccion = null;
         String texto_seleccion = "select * from peliculas where idPelicula = '" + id + "'";

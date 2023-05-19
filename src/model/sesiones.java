@@ -17,8 +17,8 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import static model.dbconnection.closeConection;
-import static model.cines.cine;
-import static model.cines.pelicula;
+import static model.cines.getCine;
+import static model.peliculas.getPelicula;
 import static model.salas.getListaSalas;
 
 public class sesiones {
@@ -34,7 +34,7 @@ public class sesiones {
      * @return lista de sesiones disponibles.
      */
     public static ArrayList<Sesion> getListaSesiones(String nombre, LocalDate fecha) {
-        Cine cine = cine(nombre);
+        Cine cine = getCine(nombre);
         ArrayList<Sala> salas = getListaSalas(cine.getIdCine());
         String idSalas = "";
         for (int i = 0; i < salas.size(); i++) {
@@ -66,7 +66,7 @@ public class sesiones {
                 idSala = resultado.getInt("idSala");
                 idPelicula = resultado.getInt("idPelicula");
 
-                pelicula = pelicula(idPelicula);
+                pelicula = getPelicula(idPelicula);
 
                 fechaBD = LocalDate.parse(resultado.getString("fecha"));
                 hora = LocalTime.parse(resultado.getString("hora"));

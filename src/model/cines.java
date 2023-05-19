@@ -15,7 +15,7 @@ public class cines {
      * Método para recuperar la lista con los nombres de los cines
      * @return ArrayList con los nombres de los cines disponibles.
      */
-    public static ArrayList<String> listaCines() {
+    public static ArrayList<String> getListaCines() {
         Connection conexion = dbconnection.conexion();
         Statement seleccion = null;
         String texto_seleccion = "select * from cines";
@@ -44,7 +44,7 @@ public class cines {
      * @param cine nombre del cine
      * @return un objeto de la clase Cine.
      */
-    public static Cine cine(String cine) {
+    public static Cine getCine(String cine) {
         Connection conexion = dbconnection.conexion();
         Statement seleccion = null;
         String texto_seleccion = "select * from cines where nombre = '" + cine + "'";
