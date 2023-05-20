@@ -94,5 +94,22 @@ public class RegistroUsuarioFrame {
         int radius = 40; // Radio de las esquinas redondeadas
         Border roundedBorder = new RoundBorder(radius, 6, Color.BLACK);
         formularioPanel.setBorder(roundedBorder);
+
+        //Agregamos los componentes al BorderLayout
+        contentPanel.add(topSpacePanel, BorderLayout.NORTH);
+        contentPanel.add(leftSpacePanel, BorderLayout.WEST);
+        contentPanel.add(rightSpacePanel, BorderLayout.EAST);
+        contentPanel.add(formularioPanel, BorderLayout.CENTER);
+        contentPanel.add(bottomSpacePanel, BorderLayout.SOUTH);
+
+        //Agregamos los componentes al BorderLayout
+        mainPanel.add(lateralLabelLeft, BorderLayout.WEST);
+        mainPanel.add(lateralLabelRight, BorderLayout.EAST);
+        mainPanel.add(contentPanel, BorderLayout.CENTER);
+
+        //Agregamos los componentes al BorderLayout
+        frame.add(mainPanel, BorderLayout.CENTER);
+        frame.add(footerPanel, BorderLayout.SOUTH);
+
     }
 }
