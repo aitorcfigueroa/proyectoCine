@@ -13,5 +13,11 @@ public class Inicio {
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.getContentPane().setBackground(Color.DARK_GRAY);
 
+        //Carga de la fuente Montserrat-Medium
+        Font montserratMedium = loadFont("C:\\Users\\Angela\\IdeaProjects\\proyectoCine\\resources\\Montserrat-Medium.ttf");
+
+        //Se establece la fuente para el proyecto
+        setUIFont(new FontUIResource(montserratMedium));
+
     }
 }
