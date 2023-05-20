@@ -58,5 +58,17 @@ public class Inicio {
         ImageIcon lateralIcon = new ImageIcon("C:\\Users\\Angela\\IdeaProjects\\proyectoCine\\resources\\lateral2.png");
         JLabel lateralLabelLeft = new JLabel(lateralIcon);
         JLabel lateralLabelRight = new JLabel(lateralIcon);
+
+        //Crear el JPanel para poder usar el footer con texto y color personalizado como otro componente
+        JPanel footerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        footerPanel.setBackground(Color.GRAY);
+
+        //Creamos el JLabel con el texto del footer
+        JLabel footerLabel = new JLabel("Aitor Couñago - Ángela Serantes © 2023 ");
+        footerLabel.setForeground(Color.WHITE);
+
+        //Agregamos el JLabel al JPanel del footer
+        footerPanel.add(footerLabel);
+
     }
 }
