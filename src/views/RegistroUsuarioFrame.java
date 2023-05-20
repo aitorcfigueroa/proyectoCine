@@ -22,5 +22,12 @@ public class RegistroUsuarioFrame {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setBackground(Color.DARK_GRAY);
         frame.setLayout(new BorderLayout());
+
+        //Cargamos la fuente Montserrat-Medium desde un archivo .ttf
+        Font montserratMedium = loadFont("C:\\Users\\Angela\\IdeaProjects\\proyectoCine\\resources\\Montserrat-Medium.ttf");
+
+        //Establecemos la fuente Montserrat-Medium como la fuente predeterminada para el proyecto
+        setUIFont(new FontUIResource(montserratMedium));
+
     }
 }
