@@ -79,5 +79,21 @@ public class Inicio {
         ventana.add(gifLabel, BorderLayout.CENTER);
         ventana.add(footerPanel, BorderLayout.SOUTH);
 
+        //Agregamos un listener al evento de redimensionamiento de la ventana
+        ventana.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                // Ajustar la posición del GIF al cambiar el tamaño de la ventana
+                int gifX = (ventana.getWidth() - gifIcon.getIconWidth()) / 2;
+                int gifY = (ventana.getHeight() - gifIcon.getIconHeight()) / 2;
+                gifLabel.setBounds(gifX, gifY, gifIcon.getIconWidth(), gifIcon.getIconHeight());
+            }
+        });
+
+        //Establecemos el tamaño de la ventana
+        ventana.setSize(1600, 900);
+
+        //Hacemos visible la ventana
+        ventana.setVisible(true);
     }
 }
