@@ -146,5 +146,119 @@ public class RegistroUsuarioFrame {
 
         return menuBar;
     }
+    private JPanel createFormularioPanel() {
+        JPanel formularioPanel = new JPanel(new GridBagLayout());
+        formularioPanel.setOpaque(false);
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.insets = new Insets(5, 5, 40, 5); // Márgenes internos
+
+        //Creamos componente para el texto de registro y determinamos la posición con grid
+        JLabel textoAdicionalLabel = new JLabel("¡Regístrate en CineScript!");
+        textoAdicionalLabel.setForeground(Color.WHITE);
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.gridwidth = 2;
+        gbc.anchor = GridBagConstraints.CENTER;
+        formularioPanel.add(textoAdicionalLabel, gbc);
+
+        //Creamos componentes del formulario y determinamos la posición con grid
+        JLabel nombreLabel = new JLabel("Nombre:");
+        nombreLabel.setForeground(Color.WHITE);
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.gridwidth = 1;
+        gbc.anchor = GridBagConstraints.LINE_START;
+        formularioPanel.add(nombreLabel, gbc);
+
+        nombreTextField = new JTextField(20);
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        formularioPanel.add(nombreTextField, gbc);
+
+        JLabel correoLabel = new JLabel("Correo electrónico:");
+        correoLabel.setForeground(Color.WHITE);
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        formularioPanel.add(correoLabel, gbc);
+
+        correoTextField = new JTextField(20);
+        gbc.gridx = 1;
+        gbc.gridy = 2;
+        formularioPanel.add(correoTextField, gbc);
+
+        JLabel contrasenaLabel = new JLabel("Contraseña:");
+        contrasenaLabel.setForeground(Color.WHITE);
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        formularioPanel.add(contrasenaLabel, gbc);
+
+        contrasenaPasswordField = new JPasswordField(20);
+        gbc.gridx = 1;
+        gbc.gridy = 3;
+        formularioPanel.add(contrasenaPasswordField, gbc);
+
+        registrarButton = new JButton("Registrar");
+        gbc.gridx = 1;
+        gbc.gridy = 4;
+        formularioPanel.add(registrarButton, gbc);
+
+        return formularioPanel;
+    }
+    //Método para cargar la fuente desde un archivo .ttf
+    private Font loadFont(String fontFileName) {
+        try {
+            return Font.createFont(Font.TRUETYPE_FONT, new File(fontFileName)).deriveFont(Font.PLAIN, 14);
+        } catch (FontFormatException | IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    //Método para establecer la fuente predeterminada para el proyecto en su conjunto
+    private static void setUIFont(FontUIResource font) {
+        // Configurar la fuente para todos los componentes de la interfaz de usuario
+        UIManager.put("Button.font", font);
+        UIManager.put("ToggleButton.font", font);
+        UIManager.put("RadioButton.font", font);
+        UIManager.put("CheckBox.font", font);
+        UIManager.put("ColorChooser.font", font);
+        UIManager.put("ComboBox.font", font);
+        UIManager.put("Label.font", font);
+        UIManager.put("List.font", font);
+        UIManager.put("MenuBar.font", font);
+        UIManager.put("MenuItem.font", font);
+        UIManager.put("RadioButtonMenuItem.font", font);
+        UIManager.put("CheckBoxMenuItem.font", font);
+        UIManager.put("Menu.font", font);
+        UIManager.put("PopupMenu.font", font);
+        UIManager.put("OptionPane.font", font);
+        UIManager.put("Panel.font", font);
+        UIManager.put("ProgressBar.font", font);
+        UIManager.put("ScrollPane.font", font);
+        UIManager.put("Viewport.font", font);
+        UIManager.put("TabbedPane.font", font);
+        UIManager.put("Table.font", font);
+        UIManager.put("TableHeader.font", font);
+        UIManager.put("TextField.font", font);
+        UIManager.put("PasswordField.font", font);
+        UIManager.put("TextArea.font", font);
+        UIManager.put("TextPane.font", font);
+        UIManager.put("EditorPane.font", font);
+        UIManager.put("TitledBorder.font", font);
+        UIManager.put("ToolBar.font", font);
+        UIManager.put("ToolTip.font", font);
+        UIManager.put("Tree.font", font);
+    }
+
+    //Iniciamos la aplicación Swing al invocar el método run()
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new RegistroUsuarioFrame();
+            }
+        });
+    }
 
 }
