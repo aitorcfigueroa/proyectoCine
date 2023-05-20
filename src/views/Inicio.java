@@ -22,5 +22,15 @@ public class Inicio {
         //Se crea la barra de menú
         JMenuBar menuBar = new JMenuBar();
 
+        //Creamos el panel izquierdo para mantener los elementos que queremos alineados a la izquierda en la barra de menú
+        JPanel panelIzquierdo = new JPanel();
+        panelIzquierdo.setLayout(new FlowLayout(FlowLayout.LEFT));
+        JLabel labelInicio = new JLabel("Inicio");
+        labelInicio.setFont(montserratMedium);
+        panelIzquierdo.add(labelInicio);
+        JLabel labelCartelera = new JLabel("Cartelera");
+        labelCartelera.setFont(montserratMedium);
+        panelIzquierdo.add(labelCartelera);
+
     }
 }
