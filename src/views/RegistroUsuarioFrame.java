@@ -34,5 +34,9 @@ public class RegistroUsuarioFrame {
         JLabel lateralLabelLeft = new JLabel(lateralIcon);
         JLabel lateralLabelRight = new JLabel(lateralIcon);
 
+        //Creamos la barra de menú
+        JMenuBar menuBar = createMenuBar();
+        frame.setJMenuBar(menuBar);
+
     }
 }
