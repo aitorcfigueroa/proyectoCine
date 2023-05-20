@@ -70,5 +70,14 @@ public class Inicio {
         //Agregamos el JLabel al JPanel del footer
         footerPanel.add(footerLabel);
 
+        //Establecemos un BorderLayout para organizar el contenido principal de la ventana
+        ventana.setLayout(new BorderLayout());
+
+        //Agregamos los componentes anteriores al BorderLayout de la ventana
+        ventana.add(lateralLabelLeft, BorderLayout.WEST);
+        ventana.add(lateralLabelRight, BorderLayout.EAST);
+        ventana.add(gifLabel, BorderLayout.CENTER);
+        ventana.add(footerPanel, BorderLayout.SOUTH);
+
     }
 }
