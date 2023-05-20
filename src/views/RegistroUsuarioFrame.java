@@ -90,5 +90,9 @@ public class RegistroUsuarioFrame {
         Border formularioMargin = new EmptyBorder(10, 10, 10, 10);
         formularioPanel.setBorder(formularioMargin);
 
+        //Aplicamos borde con esquinas redondeadas y grosor al formulario
+        int radius = 40; // Radio de las esquinas redondeadas
+        Border roundedBorder = new RoundBorder(radius, 6, Color.BLACK);
+        formularioPanel.setBorder(roundedBorder);
     }
 }
