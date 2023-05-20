@@ -38,5 +38,16 @@ public class RegistroUsuarioFrame {
         JMenuBar menuBar = createMenuBar();
         frame.setJMenuBar(menuBar);
 
+        //Creamos un JPanel para el footer
+        footerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        footerPanel.setBackground(Color.GRAY);
+
+        //Creamos el JLabel con el texto del footer
+        JLabel footerLabel = new JLabel("Aitor Couñago - Ángela Serantes © 2023 ");
+        footerLabel.setForeground(Color.WHITE);
+
+        //Agregamos el JLabel al JPanel del footer
+        footerPanel.add(footerLabel);
+
     }
 }
