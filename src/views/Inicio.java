@@ -32,5 +32,15 @@ public class Inicio {
         labelCartelera.setFont(montserratMedium);
         panelIzquierdo.add(labelCartelera);
 
+        //Creamos el panel derecho para mantener los elementos que queremos alineados a la derecha en la barra de menú
+        JPanel panelDerecho = new JPanel();
+        panelDerecho.setLayout(new FlowLayout(FlowLayout.RIGHT));
+        JLabel labelComprarEntradas = new JLabel("Comprar entradas");
+        labelComprarEntradas.setFont(montserratMedium);
+        panelDerecho.add(labelComprarEntradas);
+        JLabel labelIniciarSesion = new JLabel("Iniciar sesión");
+        labelIniciarSesion.setFont(montserratMedium);
+        panelDerecho.add(labelIniciarSesion);
+
     }
 }
