@@ -50,6 +50,13 @@ public class Inicio {
         //Asignamos la barra de menú a la ventana
         ventana.setJMenuBar(menuBar);
 
+        //Cargamos el archivo GIF mientras está en construcción la página
+        ImageIcon gifIcon = new ImageIcon("C:\\Users\\Angela\\IdeaProjects\\proyectoCine\\resources\\logo1.gif");
+        JLabel gifLabel = new JLabel(gifIcon);
 
+        //Cargamos la imagen lateral, que vamos a usar en ambos laterales
+        ImageIcon lateralIcon = new ImageIcon("C:\\Users\\Angela\\IdeaProjects\\proyectoCine\\resources\\lateral2.png");
+        JLabel lateralLabelLeft = new JLabel(lateralIcon);
+        JLabel lateralLabelRight = new JLabel(lateralIcon);
     }
 }
