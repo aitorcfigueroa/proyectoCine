@@ -49,5 +49,23 @@ public class RegistroUsuarioFrame {
         //Agregamos el JLabel al JPanel del footer
         footerPanel.add(footerLabel);
 
+
+        // Creamos el JPanel principal
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new BorderLayout());
+        mainPanel.setBackground(Color.DARK_GRAY);
+
+        // Creamos el JPanel para el espacio adicional en la parte superior
+        JPanel topSpacePanel = new JPanel();
+        topSpacePanel.setOpaque(false);
+        topSpacePanel.setPreferredSize(new Dimension(1, 100)); //Ajustar el tamaño del espacio superior
+        topSpacePanel.setBackground(Color.DARK_GRAY);
+
+        // Creamos el JPanel para el espacio adicional en la parte inferior
+        JPanel bottomSpacePanel = new JPanel();
+        bottomSpacePanel.setOpaque(false);
+        bottomSpacePanel.setPreferredSize(new Dimension(1, 100)); //Ajustar el tamaño del espacio inferior
+        bottomSpacePanel.setBackground(Color.DARK_GRAY);
+
     }
 }
