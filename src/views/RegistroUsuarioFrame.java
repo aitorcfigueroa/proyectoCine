@@ -29,5 +29,10 @@ public class RegistroUsuarioFrame {
         //Establecemos la fuente Montserrat-Medium como la fuente predeterminada para el proyecto
         setUIFont(new FontUIResource(montserratMedium));
 
+        //Añadimos la imagen lateral que vamos a usar en ambos laterales de la ventana
+        ImageIcon lateralIcon = new ImageIcon("C:\\Users\\Angela\\IdeaProjects\\proyectoCine\\resources\\lateral2.png");
+        JLabel lateralLabelLeft = new JLabel(lateralIcon);
+        JLabel lateralLabelRight = new JLabel(lateralIcon);
+
     }
 }
