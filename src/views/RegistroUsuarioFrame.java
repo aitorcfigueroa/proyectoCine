@@ -116,4 +116,35 @@ public class RegistroUsuarioFrame {
         frame.setLocationRelativeTo(null); //Centrar la ventana en la pantalla
         frame.setVisible(true);
     }
+    private JMenuBar createMenuBar() {
+        JMenuBar menuBar = new JMenuBar();
+
+        //Crear el panel izquierdo para los elementos alineados a la izquierda
+        panelIzquierdo = new JPanel();
+        panelIzquierdo.setLayout(new FlowLayout(FlowLayout.LEFT));
+        JLabel labelInicio = new JLabel("Inicio");
+        labelInicio.setFont(panelIzquierdo.getFont());
+        panelIzquierdo.add(labelInicio);
+        JLabel labelCartelera = new JLabel("Cartelera");
+        labelCartelera.setFont(panelIzquierdo.getFont());
+        panelIzquierdo.add(labelCartelera);
+
+        //Crear el panel derecho para los elementos alineados a la derecha
+        panelDerecho = new JPanel();
+        panelDerecho.setLayout(new FlowLayout(FlowLayout.RIGHT));
+        JLabel labelComprarEntradas = new JLabel("Comprar entradas");
+        labelComprarEntradas.setFont(panelDerecho.getFont());
+        panelDerecho.add(labelComprarEntradas);
+        JLabel labelIniciarSesion = new JLabel("Iniciar sesión");
+        labelIniciarSesion.setFont(panelDerecho.getFont());
+        panelDerecho.add(labelIniciarSesion);
+
+        //Agregar los paneles a la barra de menú
+        menuBar.add(panelIzquierdo);
+        menuBar.add(Box.createHorizontalGlue());
+        menuBar.add(panelDerecho);
+
+        return menuBar;
+    }
+
 }
