@@ -80,8 +80,8 @@ public class RegistroUsuarioFrame {
         //Crear el JPanel para el espacio a la derecha del formulario
         JPanel rightSpacePanel = new JPanel();
         rightSpacePanel.setOpaque(false);
-        rightSpacePanel.setPreferredSize(new Dimension(350, 1)); // Ajustar el tamaño del espacio derecho
-        rightSpacePanel.setBackground(Color.DARK_GRAY); // Establecer el color de fondo de los laterales
+        rightSpacePanel.setPreferredSize(new Dimension(350, 1)); //Ajustar el tamaño del espacio derecho
+        rightSpacePanel.setBackground(Color.DARK_GRAY); //Establecer el color de fondo de los laterales
 
         //Crear el formulario de registro de usuario
         JPanel formularioPanel = createFormularioPanel();
@@ -111,5 +111,9 @@ public class RegistroUsuarioFrame {
         frame.add(mainPanel, BorderLayout.CENTER);
         frame.add(footerPanel, BorderLayout.SOUTH);
 
+        //Establecemos el tamaño de la ventana
+        frame.setSize(1600, 900);
+        frame.setLocationRelativeTo(null); //Centrar la ventana en la pantalla
+        frame.setVisible(true);
     }
 }
