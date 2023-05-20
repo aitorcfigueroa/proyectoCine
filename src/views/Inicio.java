@@ -6,6 +6,9 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.io.File;
 import java.io.IOException;
+
+// toDo en construcción hay que cambiar el gif y poner otra opción para el inicio
+// toDo desplegar botones de menú
 public class Inicio {
     public static void main(String[] args) {
         //Se crea la ventana principal
