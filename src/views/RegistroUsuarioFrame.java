@@ -50,22 +50,45 @@ public class RegistroUsuarioFrame {
         footerPanel.add(footerLabel);
 
 
-        // Creamos el JPanel principal
+        //Creamos el JPanel principal
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
         mainPanel.setBackground(Color.DARK_GRAY);
 
-        // Creamos el JPanel para el espacio adicional en la parte superior
+        //Creamos el JPanel para el espacio adicional en la parte superior
         JPanel topSpacePanel = new JPanel();
         topSpacePanel.setOpaque(false);
         topSpacePanel.setPreferredSize(new Dimension(1, 100)); //Ajustar el tamaño del espacio superior
         topSpacePanel.setBackground(Color.DARK_GRAY);
 
-        // Creamos el JPanel para el espacio adicional en la parte inferior
+        //Creamos el JPanel para el espacio adicional en la parte inferior
         JPanel bottomSpacePanel = new JPanel();
         bottomSpacePanel.setOpaque(false);
         bottomSpacePanel.setPreferredSize(new Dimension(1, 100)); //Ajustar el tamaño del espacio inferior
         bottomSpacePanel.setBackground(Color.DARK_GRAY);
+
+        //Crear el JPanel para contener los componentes laterales, el formulario y el espacio adicional
+        JPanel contentPanel = new JPanel(new BorderLayout());
+        contentPanel.setOpaque(false); // Establecer el fondo como transparente
+
+        //Crear el JPanel para el espacio a la izquierda del formulario
+        JPanel leftSpacePanel = new JPanel();
+        leftSpacePanel.setOpaque(false);
+        leftSpacePanel.setPreferredSize(new Dimension(350, 1)); // Ajustar el tamaño del espacio izquierdo
+        leftSpacePanel.setBackground(Color.DARK_GRAY); // Establecer el color de fondo de los laterales
+
+        //Crear el JPanel para el espacio a la derecha del formulario
+        JPanel rightSpacePanel = new JPanel();
+        rightSpacePanel.setOpaque(false);
+        rightSpacePanel.setPreferredSize(new Dimension(350, 1)); // Ajustar el tamaño del espacio derecho
+        rightSpacePanel.setBackground(Color.DARK_GRAY); // Establecer el color de fondo de los laterales
+
+        //Crear el formulario de registro de usuario
+        JPanel formularioPanel = createFormularioPanel();
+
+        //Ajustar los márgenes internos del formularioPanel
+        Border formularioMargin = new EmptyBorder(10, 10, 10, 10);
+        formularioPanel.setBorder(formularioMargin);
 
     }
 }
