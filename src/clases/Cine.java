@@ -5,6 +5,12 @@ public class Cine {
     String nombre_cine;
     double precio;
 
+    public Cine(int idCine, String nombre_cine, double precio) {
+        this.idCine = idCine;
+        this.nombre_cine = nombre_cine;
+        this.precio = precio;
+    }
+
     public Cine(String nombre_cine, double precio) {
         this.nombre_cine = nombre_cine;
         this.precio = precio;
