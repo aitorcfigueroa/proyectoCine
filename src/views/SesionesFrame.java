@@ -82,5 +82,21 @@ public class SesionesFrame extends JFrame {
 
         //Color de fondo del panel como gris oscuro
         contentPanel.setBackground(Color.DARK_GRAY);
+
+
+
+        //Encabezado
+        JPanel headerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER)); //Creamos un panel para el header
+        Color headerColor = Color.decode("#4D9694"); //Establecemos el color para el header
+        headerPanel.setBackground(headerColor);//Color de fondo
+        JLabel headerLabel = new JLabel("Elige tu sesión"); //Etiqueta con el texto del header
+        headerLabel.setForeground(Color.WHITE); //Color del texto del header
+        headerLabel.setFont(montserratMedium.deriveFont(Font.PLAIN, 18)); //Fuente y tamaño del header
+        headerPanel.add(headerLabel);//Se añade la etiqueta del header al panel del header
+        contentPanel.add(headerPanel, BorderLayout.NORTH); //Se posiciona el panel del header al panel principal en el norte
+
+        contentPanel.add(new JLabel(lateralIcon), BorderLayout.WEST); //Se añade una etiqueta con la imagen lateral al panel principal al oeste
+        contentPanel.add(new JLabel(lateralIcon), BorderLayout.EAST); //Se añade una etiqueta con la imagen lateral al panel principal al este
+
     }
 }
