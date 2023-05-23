@@ -48,5 +48,18 @@ public class SesionesFrame extends JFrame {
         labelCartelera.setFont(montserratMedium);
         panelIzquierdo.add(labelCartelera);
         labelCartelera.setCursor(new Cursor(Cursor.HAND_CURSOR)); //Cambiar el diseño del cursor
+
+        //Creamos el panel derecho para mantener los elementos que queremos alineados a la derecha en la barra de menú
+        JPanel panelDerecho = new JPanel();
+        panelDerecho.setLayout(new FlowLayout(FlowLayout.RIGHT));
+        JLabel labelComprarEntradas = new JLabel("Comprar entradas");
+        labelComprarEntradas.setCursor(new Cursor(Cursor.HAND_CURSOR)); //Cambiar el diseño del cursor
+        labelComprarEntradas.setFont(montserratMedium);
+        panelDerecho.add(labelComprarEntradas);
+
+        JLabel labelIniciarSesion = new JLabel("Iniciar sesión");
+        labelIniciarSesion.setFont(montserratMedium);
+        panelDerecho.add(labelIniciarSesion);
+        labelIniciarSesion.setCursor(new Cursor(Cursor.HAND_CURSOR)); //Cambiar el diseño del cursor
     }
 }
