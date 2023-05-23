@@ -110,7 +110,7 @@ public class SesionesFrame extends JFrame {
         //Cargamos la imagen de la película 1 desde la ruta relativa
         ImageIcon pelicula1 = new ImageIcon("../resources/peli1.png");
 
-        //Se obtiene la imagen y se escala a un tamaño deseado
+        //Se obtiene la imagen y se escala al tamaño deseado
         Image imagen1 = pelicula1.getImage().getScaledInstance(200, -1, Image.SCALE_SMOOTH);
 
         //Se crea un nuevo ImageIcon con la imagen escalada de la película 1
@@ -193,6 +193,14 @@ public class SesionesFrame extends JFrame {
         panelPelicula2.setBackground(Color.DARK_GRAY); //Definimos el color de fondo como gris oscuro
         panelPelicula2.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); //Borde vacío con un margen de 10 píxeles en cada lado del panel
 
+        //Cargamos la imagen de la película2 desde la ruta relativa
+        ImageIcon pelicula2 = new ImageIcon("../resources/peli2.png");
+        //Se obtiene la imagen y se escala al tamaño deseado
+        Image imagen2 = pelicula2.getImage().getScaledInstance(200, -1, Image.SCALE_SMOOTH);
+        //Se crea un nuevo ImageIcon con la imagen escalada de la película 2
+        ImageIcon pelicula2Scaled = new ImageIcon(imagen2);
 
+        JLabel labelPelicula2 = new JLabel(pelicula2Scaled); //Creamos un nuevo JLabel con la imagen escalada de la película 2
+        panelPelicula2.add(labelPelicula2, BorderLayout.CENTER); //Posicionamos el Jlabel en el centro
     }
 }
