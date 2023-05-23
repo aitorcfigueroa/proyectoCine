@@ -25,6 +25,19 @@ public class Inicio {
         //Se crea la barra de menú
         JMenuBar menuBar = new JMenuBar();
 
+        //Se añade un header
+        JPanel headerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        Color headerColor = Color.decode("#4D9694");
+        headerPanel.setBackground(headerColor);
+
+        JLabel headerLabel = new JLabel("Bienvenidas y bienvenidos a CineScript");
+        headerLabel.setFont(montserratMedium.deriveFont(Font.PLAIN, 18));
+
+        headerPanel.add(headerLabel);
+
+        ventana.setLayout(new BorderLayout());
+        ventana.add(headerPanel, BorderLayout.NORTH);
+
         //Creamos el panel izquierdo para mantener los elementos que queremos alineados a la izquierda en la barra de menú
         JPanel panelIzquierdo = new JPanel();
         panelIzquierdo.setLayout(new FlowLayout(FlowLayout.LEFT));
