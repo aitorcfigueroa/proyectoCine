@@ -186,5 +186,13 @@ public class SesionesFrame extends JFrame {
                 panelPelicula1.setToolTipText("Título: Película 1\nDirector: Director 1\nAño: 2023\nDuración: 95 minutos\nSinopsis: Sinopsis de la película 1");
             }
         });
+
+
+        // Película 2
+        JPanel panelPelicula2 = new JPanel(new BorderLayout()); //Creamos un panel para recoger la "Pelicula2" con BorderLayout
+        panelPelicula2.setBackground(Color.DARK_GRAY); //Definimos el color de fondo como gris oscuro
+        panelPelicula2.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); //Borde vacío con un margen de 10 píxeles en cada lado del panel
+
+
     }
 }
