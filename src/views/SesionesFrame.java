@@ -102,10 +102,19 @@ public class SesionesFrame extends JFrame {
         JPanel peliculasPanel = new JPanel(new GridLayout(3, 2, 20, 20)); //Creamos un panel para organizar las peliculas en 3 filas y dos columnas con espacio horizontal y vertical
         peliculasPanel.setBackground(Color.DARK_GRAY); //Color de fondo del panel
 
-        // Película 1
+        //Película 1
         JPanel panelPelicula1 = new JPanel(new BorderLayout()); //Creamos un panel para recoger la "Pelicula1" con BorderLayout
         panelPelicula1.setBackground(Color.DARK_GRAY); //Definimos el color de fondo como gris oscuro
         panelPelicula1.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); //Borde vacío con un margen de 10 píxeles en cada lado del panel
+
+        //Cargamos la imagen de la película 1 desde la ruta relativa
+        ImageIcon pelicula1 = new ImageIcon("../resources/peli1.png");
+
+        //Se obtiene la imagen y se escala a un tamaño deseado
+        Image imagen1 = pelicula1.getImage().getScaledInstance(200, -1, Image.SCALE_SMOOTH);
+
+        //Se crea un nuevo ImageIcon con la imagen escalada de la película 1
+        ImageIcon pelicula1Scaled = new ImageIcon(imagen1);
 
     }
 }
