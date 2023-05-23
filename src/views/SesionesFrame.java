@@ -258,5 +258,16 @@ public class SesionesFrame extends JFrame {
         //Añadimos el panelPelicula2 al peliculasPanel
         peliculasPanel.add(panelPelicula2);
 
+
+        // Evento al pasar el ratón por encima de la película 2
+        labelPelicula2.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                ToolTipManager.sharedInstance().setInitialDelay(0);
+                panelPelicula2.setToolTipText("Título: Película 2\nDirector: Director 2\nAño: 2023\nDuración: 95 minutos\nSinopsis: Sinopsis de la película 2");
+            }
+        });
+
+
     }
 }
