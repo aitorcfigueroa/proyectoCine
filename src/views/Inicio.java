@@ -4,6 +4,8 @@ import javax.swing.plaf.FontUIResource;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 
@@ -117,7 +119,17 @@ public class Inicio {
 
         //Hacemos visible la ventana
         ventana.setVisible(true);
+
+        // Agregar ActionListener al labelComprarEntradas
+        labelComprarEntradas.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // Abrir la ventana SesionesFrame al hacer clic en "Comprar entradas"
+                abrirVentanaSesiones();
+            }
+        });
     }
+}
 
     //Método para cargar la fuente desde un archivo .ttf
     private static Font loadFont(String fontFileName) {
