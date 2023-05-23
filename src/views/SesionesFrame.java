@@ -61,5 +61,17 @@ public class SesionesFrame extends JFrame {
         labelIniciarSesion.setFont(montserratMedium);
         panelDerecho.add(labelIniciarSesion);
         labelIniciarSesion.setCursor(new Cursor(Cursor.HAND_CURSOR)); //Cambiar el diseño del cursor
+
+        //Añadimos el componente "panelIzquierdo" a la barra de menú
+        menuBar.add(panelIzquierdo);
+
+        //Añadimos un espacio flexible horizontal en la barra de menú
+        menuBar.add(Box.createHorizontalGlue());
+
+        //Añadimos el componente "panelDerecho" a la barra de menú
+        menuBar.add(panelDerecho);
+
+        //Establecemos la barra de menú completa en la ventana
+        setJMenuBar(menuBar);
     }
 }
