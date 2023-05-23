@@ -24,5 +24,29 @@ public class SesionesFrame extends JFrame {
 
         //Se crea la barra de menú
         JMenuBar menuBar = new JMenuBar();
+
+        //Creamos el panel izquierdo para mantener los elementos que queremos alineados a la izquierda en la barra de menú
+        JPanel panelIzquierdo = new JPanel();
+        panelIzquierdo.setLayout(new FlowLayout(FlowLayout.LEFT));
+        JLabel labelInicio = new JLabel("Inicio");
+        labelInicio.setFont(montserratMedium);
+        panelIzquierdo.add(labelInicio);
+        labelInicio.setCursor(new Cursor(Cursor.HAND_CURSOR)); //Cambiar el diseño del cursor
+
+        //Agregamos ActionListener a Inicio
+        labelInicio.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                //Abrir la ventana Inicio al hacer click en "Inicio"
+                abrirVentanaInicio();
+                dispose(); // Cerrar la ventana actual
+            }
+        });
+
+        //Cartelera que está también en el panel izquierdo
+        JLabel labelCartelera = new JLabel("Cartelera");
+        labelCartelera.setFont(montserratMedium);
+        panelIzquierdo.add(labelCartelera);
+        labelCartelera.setCursor(new Cursor(Cursor.HAND_CURSOR)); //Cambiar el diseño del cursor
     }
 }
