@@ -22,5 +22,7 @@ public class SesionesFrame extends JFrame {
         //Se establece la fuente para el proyecto
         setUIFont(new FontUIResource(montserratMedium));
 
+        //Se crea la barra de menú
+        JMenuBar menuBar = new JMenuBar();
     }
 }
