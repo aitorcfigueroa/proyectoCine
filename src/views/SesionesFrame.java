@@ -116,5 +116,9 @@ public class SesionesFrame extends JFrame {
         //Se crea un nuevo ImageIcon con la imagen escalada de la película 1
         ImageIcon pelicula1Scaled = new ImageIcon(imagen1);
 
+        //Creamos un nuevo JLabel con la imagen escalada de la película 1
+        JLabel labelPelicula1 = new JLabel(pelicula1Scaled);
+        panelPelicula1.add(labelPelicula1, BorderLayout.CENTER); //Posicionamos el Jlabel en el centro
+
     }
 }
