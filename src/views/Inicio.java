@@ -120,6 +120,7 @@ public class Inicio {
         //Hacemos visible la ventana
         ventana.setVisible(true);
 
+
         // Agregar ActionListener al labelComprarEntradas
         labelComprarEntradas.addMouseListener(new MouseAdapter() {
             @Override
@@ -129,7 +130,6 @@ public class Inicio {
             }
         });
     }
-}
 
     //Método para cargar la fuente desde un archivo .ttf
     private static Font loadFont(String fontFileName) {
@@ -174,5 +174,18 @@ public class Inicio {
         UIManager.put("ToolBar.font", font);
         UIManager.put("ToolTip.font", font);
         UIManager.put("Tree.font", font);
+    }
+    /**
+     * Abre la ventana de SesionesFrame para mostrar las sesiones disponibles.
+     * Se ejecuta en el hilo de despacho de eventos de Swing para garantizar la
+     * sincronización correcta con la interfaz de usuario.
+     */
+    private static void abrirVentanaSesiones() {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                SesionesFrame sesionesFrame = new SesionesFrame();
+                sesionesFrame.setVisible(true);
+            }
+        });
     }
 }
