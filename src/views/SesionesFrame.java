@@ -98,5 +98,9 @@ public class SesionesFrame extends JFrame {
         contentPanel.add(new JLabel(lateralIcon), BorderLayout.WEST); //Se añade una etiqueta con la imagen lateral al panel principal al oeste
         contentPanel.add(new JLabel(lateralIcon), BorderLayout.EAST); //Se añade una etiqueta con la imagen lateral al panel principal al este
 
+
+        JPanel peliculasPanel = new JPanel(new GridLayout(3, 2, 20, 20)); //Creamos un panel para organizar las peliculas en 3 filas y dos columnas con espacio horizontal y vertical
+        peliculasPanel.setBackground(Color.DARK_GRAY); //Color de fondo del panel
+
     }
 }
