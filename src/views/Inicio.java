@@ -58,6 +58,12 @@ public class Inicio {
         labelIniciarSesion.setFont(montserratMedium);
         panelDerecho.add(labelIniciarSesion);
 
+        //Establecemos el hand cursor para los botones de menú
+        labelInicio.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        labelCartelera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        labelComprarEntradas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        labelIniciarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
         //Agregamos los paneles con las posiciones a la barra de menú
         menuBar.add(panelIzquierdo);
         menuBar.add(Box.createHorizontalGlue());
