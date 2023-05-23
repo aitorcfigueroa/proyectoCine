@@ -73,5 +73,14 @@ public class SesionesFrame extends JFrame {
 
         //Establecemos la barra de menú completa en la ventana
         setJMenuBar(menuBar);
+
+        //Cargamos la imagen que se va a utilizar en ambos laterales de la ventana
+        ImageIcon lateralIcon = new ImageIcon("C:\\Users\\Angela\\IdeaProjects\\proyectoCine\\resources\\lateral2.png");
+
+        //Creamos un panel BorderLayout para poder organizar los componentes
+        JPanel contentPanel = new JPanel(new BorderLayout());
+
+        //Color de fondo del panel como gris oscuro
+        contentPanel.setBackground(Color.DARK_GRAY);
     }
 }
