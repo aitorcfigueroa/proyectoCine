@@ -127,7 +127,7 @@ public class SesionesFrame extends JFrame {
         panelInfo1.setLayout(new BoxLayout(panelInfo1, BoxLayout.Y_AXIS));
         //Añadimos espacio entre la imagen y el título
         panelInfo1.add(Box.createVerticalStrut(20));
-        JLabel tituloPelicula1 = new JLabel("FATUM"); //título de la película1
+        JLabel tituloPelicula1 = new JLabel("FATUM"); // etiqueta título de la película1
         tituloPelicula1.setForeground(Color.WHITE); //Color del texto
         tituloPelicula1.setHorizontalAlignment(SwingConstants.CENTER); //Se alinea el texto del JLabel al centro-horizontal
         tituloPelicula1.setAlignmentX(Component.CENTER_ALIGNMENT); //Se alinea el JLabel en el eje X al centro
@@ -202,5 +202,21 @@ public class SesionesFrame extends JFrame {
 
         JLabel labelPelicula2 = new JLabel(pelicula2Scaled); //Creamos un nuevo JLabel con la imagen escalada de la película 2
         panelPelicula2.add(labelPelicula2, BorderLayout.CENTER); //Posicionamos el Jlabel en el centro
+
+        //Se crea un nuevo JPanel llamado panelInfo2 para recoger la información de la segunda película
+        JPanel panelInfo2 = new JPanel();
+        panelInfo2.setBackground(Color.DARK_GRAY);//Color de fondo del panel
+        //Se establece un BoxLayout con orientación vertical en el panelInfo2
+        panelInfo2.setLayout(new BoxLayout(panelInfo2, BoxLayout.Y_AXIS));
+        //Agregamos espacio entre la imagen y el título
+        panelInfo2.add(Box.createVerticalStrut(20));
+
+        JLabel tituloPelicula2 = new JLabel("SICA"); //Etiqueta título de la película2
+        tituloPelicula2.setForeground(Color.WHITE);  //Color del texto
+        tituloPelicula2.setHorizontalAlignment(SwingConstants.CENTER); //Se alinea el texto del JLabel al centro-horizontal
+        tituloPelicula2.setAlignmentX(Component.CENTER_ALIGNMENT); //Se alinea el JLabel en el eje X al centro
+        panelInfo2.add(tituloPelicula2); //Se añade la etiqueta del titulo al panel de info2 de la segunda película
+
+
     }
 }
