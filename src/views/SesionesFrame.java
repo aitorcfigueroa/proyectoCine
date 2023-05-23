@@ -120,5 +120,19 @@ public class SesionesFrame extends JFrame {
         JLabel labelPelicula1 = new JLabel(pelicula1Scaled);
         panelPelicula1.add(labelPelicula1, BorderLayout.CENTER); //Posicionamos el Jlabel en el centro
 
+        //Se crea un nuevo JPanel llamado panelInfo1 para recoger la información de la primera película
+        JPanel panelInfo1 = new JPanel();
+        panelInfo1.setBackground(Color.DARK_GRAY); //Color del panel
+        //Se establece un BoxLayout con orientación vertical en el panelInfo1
+        panelInfo1.setLayout(new BoxLayout(panelInfo1, BoxLayout.Y_AXIS));
+        //Añadimos espacio entre la imagen y el título
+        panelInfo1.add(Box.createVerticalStrut(20));
+        JLabel tituloPelicula1 = new JLabel("FATUM"); //título de la película1
+        tituloPelicula1.setForeground(Color.WHITE); //Color del texto
+        tituloPelicula1.setHorizontalAlignment(SwingConstants.CENTER); //Se alinea el texto del JLabel al centro-horizontal
+        tituloPelicula1.setAlignmentX(Component.CENTER_ALIGNMENT); //Se alinea el JLabel en el eje X al centro
+        panelInfo1.add(tituloPelicula1); //Se añade la etiqueta al panel de info1 de la primera película
+
+
     }
 }
