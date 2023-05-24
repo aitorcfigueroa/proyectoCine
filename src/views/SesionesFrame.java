@@ -281,5 +281,20 @@ public class SesionesFrame extends JFrame {
 
         JLabel labelPelicula3 = new JLabel(pelicula3Scaled); //Creamos un nuevo JLabel con la imagen escalada de la película 3
         panelPelicula3.add(labelPelicula3, BorderLayout.CENTER); //Posicionamos el Jlabel en el centro
+
+        //Se crea un nuevo JPanel llamado panelInfo3 para recoger la información de la tercera película
+        JPanel panelInfo3 = new JPanel();
+        panelInfo3.setBackground(Color.DARK_GRAY); //Color de fondo del panel
+        panelInfo3.setLayout(new BoxLayout(panelInfo3, BoxLayout.Y_AXIS)); //Se establece un BoxLayout con orientación vertical en el panelInfo3
+        // Agregar espacio entre la imagen y el título
+        panelInfo3.add(Box.createVerticalStrut(20));
+
+        JLabel tituloPelicula3 = new JLabel("SUPER MARIO BROS LA PELÍCULA");   //Etiqueta título de la película3
+        tituloPelicula3.setForeground(Color.WHITE); //Color del texto
+        tituloPelicula3.setHorizontalAlignment(SwingConstants.CENTER); //Se alinea el texto del JLabel al centro-horizontal
+        tituloPelicula3.setAlignmentX(Component.CENTER_ALIGNMENT); //Se alinea el JLabel en el eje X al centro
+        panelInfo3.add(tituloPelicula3); //Se añade la etiqueta del titulo al panel de info3 de la tercera película
+
+
     }
 }
