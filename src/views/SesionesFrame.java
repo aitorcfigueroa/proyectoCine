@@ -617,5 +617,27 @@ public class SesionesFrame extends JFrame {
         UIManager.put("Tree.font", font);
     }
 
+    /**
+     * Abre y muestra la ventana "Inicio" en el hilo de eventos de Swing.
+     */
+    private static void abrirVentanaInicio() {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                Inicio.main(null); //Llama al método main de la clase "Inicio"
+            }
+        });
+    }
+
+    /**
+     * Punto de entrada para la aplicación.
+     * Crea y muestra la ventana "SesionesFrame" en el hilo de eventos de Swing.
+     */
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new SesionesFrame(); //Iniciamos la aplicación Swing al invocar el método run()
+            }
+        });
+    }
 }
 
