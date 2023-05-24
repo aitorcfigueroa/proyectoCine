@@ -19,7 +19,7 @@ public class Inicio {
         ventana.getContentPane().setBackground(Color.DARK_GRAY);
 
         //Carga de la fuente Montserrat-Medium
-        Font montserratMedium = loadFont("C:\\Users\\Angela\\IdeaProjects\\proyectoCine\\resources\\Montserrat-Medium.ttf");
+        Font montserratMedium = loadFont("../resources/Montserrat-Medium.ttf");
 
         //Se establece la fuente para el proyecto
         setUIFont(new FontUIResource(montserratMedium));
@@ -75,11 +75,11 @@ public class Inicio {
         ventana.setJMenuBar(menuBar);
 
         //Cargamos el archivo GIF mientras está en construcción la página
-        ImageIcon gifIcon = new ImageIcon("C:\\Users\\Angela\\IdeaProjects\\proyectoCine\\resources\\logo1.gif");
+        ImageIcon gifIcon = new ImageIcon("../resources/logo1.gif");
         JLabel gifLabel = new JLabel(gifIcon);
 
         //Cargamos la imagen lateral, que vamos a usar en ambos laterales
-        ImageIcon lateralIcon = new ImageIcon("C:\\Users\\Angela\\IdeaProjects\\proyectoCine\\resources\\lateral2.png");
+        ImageIcon lateralIcon = new ImageIcon("../resources/lateral2.png");
         JLabel lateralLabelLeft = new JLabel(lateralIcon);
         JLabel lateralLabelRight = new JLabel(lateralIcon);
 
