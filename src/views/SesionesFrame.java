@@ -469,6 +469,15 @@ public class SesionesFrame extends JFrame {
         panelPelicula5.add(panelInfo5, BorderLayout.SOUTH); //Añadimos el panelInfo5 al panelPelicula5 al sur
         peliculasPanel.add(panelPelicula5); //Añadimos el panelPelicula5 al peliculasPanel
 
+        //Evento al pasar el ratón por encima de la película 5
+        labelPelicula5.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                ToolTipManager.sharedInstance().setInitialDelay(0);
+                panelPelicula5.setToolTipText("Título: Película 5\nDirector: Director 5\nAño: 2023\nDuración: 95 minutos\nSinopsis: Sinopsis de la película 5");
+            }
+        });
+
     }
 
 }
