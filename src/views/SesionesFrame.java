@@ -366,5 +366,40 @@ public class SesionesFrame extends JFrame {
         tituloPelicula4.setAlignmentX(Component.CENTER_ALIGNMENT); //Se alinea el JLabel en el eje X al centro
         panelInfo4.add(tituloPelicula4); //Se añade la etiqueta del titulo al panel de info4 de la cuarta película
 
+        //Creamos un nuevo JPanel llamado panelBotones3
+        JPanel panelBotones4 = new JPanel();
+        panelBotones4.setBackground(Color.DARK_GRAY); //Color de fondo del panel
+        panelBotones4.setLayout(new FlowLayout(FlowLayout.CENTER)); //Se establece un nuevo FlowLayout con alineación al centro en el panelBotones4
+        panelBotones4.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 0)); //Borde vacío para aumentar la distancia
+        //Creamos un nuevo JButton llamado boton4_1 para sesión "16:05"
+        JButton boton4_1 = new JButton("16:05");
+        boton4_1.setCursor(new Cursor(Cursor.HAND_CURSOR)); //cursor mano
+        //Creamos un nuevo JButton llamado boton4_2 para sesión "17:45"
+        JButton boton4_2 = new JButton("17:45");
+        boton4_2.setCursor(new Cursor(Cursor.HAND_CURSOR)); //cursor mano
+        //Creamos un nuevo JButton llamado boton4_3 para sesión "20:10"
+        JButton boton4_3 = new JButton("20:10");
+        boton4_3.setCursor(new Cursor(Cursor.HAND_CURSOR)); //cursor mano
+        //Creamos un nuevo JButton llamado boton4_4 para sesión "22:00"
+        JButton boton4_4 = new JButton("22:00");
+        boton4_4.setCursor(new Cursor(Cursor.HAND_CURSOR)); //cursor mano
+        //Creamos un nuevo JButton llamado boton4_5 para sesión "23:30"
+        JButton boton4_5 = new JButton("23:30");
+        boton4_5.setCursor(new Cursor(Cursor.HAND_CURSOR)); //cursor mano
+        JButton botonEdad4 = new JButton("Edad"); //Creamos un nuevo JButton llamado botonEdad4 para recoger "Edad"
+        botonEdad4.setBackground(Color.decode("#57FFA3")); //Color boton Edad4
+
+        //Se añaden los botones al panel
+        panelBotones4.add(boton4_1);
+        panelBotones4.add(boton4_2);
+        panelBotones4.add(boton4_3);
+        panelBotones4.add(boton4_4);
+        panelBotones4.add(boton4_5);
+        panelBotones4.add(botonEdad4);
+        panelInfo4.add(panelBotones4);//Se añade el panel Botones4 al panelInfo4
+
+        panelPelicula4.add(panelInfo4, BorderLayout.SOUTH); //Añadimos el panelInfo4 al panelPelicula4 al sur
+        peliculasPanel.add(panelPelicula4); //Añadimos el panelPelicula4 al peliculasPanel
+
     }
 }
