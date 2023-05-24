@@ -483,7 +483,7 @@ public class SesionesFrame extends JFrame {
         panelPelicula6.setBackground(Color.DARK_GRAY); //color de fondo del panel
         panelPelicula6.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); //Borde vacío con un margen de 10 píxeles en cada lado del panel
 
-        ImageIcon pelicula6 = new ImageIcon("../resources/peli5.png"); //Cargamos la imagen de la película6 desde la ruta relativa
+        ImageIcon pelicula6 = new ImageIcon("../resources/peli6.png"); //Cargamos la imagen de la película6 desde la ruta relativa
         Image imagen6 = pelicula6.getImage().getScaledInstance(200, -1, Image.SCALE_SMOOTH); //Se obtiene la imagen y se escala al tamaño deseado
         ImageIcon pelicula6Scaled = new ImageIcon(imagen6); //Se crea un nuevo ImageIcon con la imagen escalada de la película 6
 
@@ -503,6 +503,40 @@ public class SesionesFrame extends JFrame {
         tituloPelicula6.setAlignmentX(Component.CENTER_ALIGNMENT); //Se alinea el JLabel en el eje X al centro
         panelInfo6.add(tituloPelicula6); //Se añade la etiqueta del titulo al panel de info6 de la sexta película
 
+        //Creamos un nuevo JPanel llamado panelBotones6
+        JPanel panelBotones6 = new JPanel();
+        panelBotones6.setBackground(Color.DARK_GRAY); //color de fondo del panel
+        panelBotones6.setLayout(new FlowLayout(FlowLayout.CENTER)); //Se establece un nuevo FlowLayout con alineación al centro en el panelBotones6
+        panelBotones6.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 0)); //Borde vacío para aumentar la distancia
+        //Creamos un nuevo JButton llamado boton6_1 para sesión "17:35"
+        JButton boton6_1 = new JButton("17:35");
+        boton6_1.setCursor(new Cursor(Cursor.HAND_CURSOR)); //cursor mano
+        //Creamos un nuevo JButton llamado boton6_2 para sesión "19:45"
+        JButton boton6_2 = new JButton("19:45");
+        boton6_2.setCursor(new Cursor(Cursor.HAND_CURSOR)); //cursor mano
+        //Creamos un nuevo JButton llamado boton6_3 para sesión "22:00"
+        JButton boton6_3 = new JButton("22:00");
+        boton6_3.setCursor(new Cursor(Cursor.HAND_CURSOR)); //cursor mano
+        //Creamos un nuevo JButton llamado boton6_4 para sesión "23:45"
+        JButton boton6_4 = new JButton("23:45");
+        boton6_4.setCursor(new Cursor(Cursor.HAND_CURSOR)); //cursor mano
+        //Creamos un nuevo JButton llamado boton6_5 para sesión "2:00"
+        JButton boton6_5 = new JButton("2:00");
+        boton6_5.setCursor(new Cursor(Cursor.HAND_CURSOR)); //cursor mano
+        JButton botonEdad6 = new JButton("Edad"); //Creamos un nuevo JButton llamado botonEdad6 para recoger "Edad"
+        botonEdad6.setBackground(Color.decode("#57FFA3")); //Color boton Edad6
+
+        //Se añaden los botones al panel
+        panelBotones6.add(boton6_1);
+        panelBotones6.add(boton6_2);
+        panelBotones6.add(boton6_3);
+        panelBotones6.add(boton6_4);
+        panelBotones6.add(boton6_5);
+        panelBotones6.add(botonEdad6);
+        panelInfo6.add(panelBotones6);//Se añade el panel Botones5 al panelInfo5
+
+        panelPelicula6.add(panelInfo6, BorderLayout.SOUTH); //Añadimos el panelInfo6 al panelPelicula6 al sur
+        peliculasPanel.add(panelPelicula6); //Añadimos el panelPelicula6 al peliculasPanel
 
     }
 
