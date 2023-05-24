@@ -547,7 +547,11 @@ public class SesionesFrame extends JFrame {
             }
         });
 
-
+        //Creamos un JscrollPane asociado al panel de películas
+        JScrollPane scrollPane = new JScrollPane(peliculasPanel);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS); //Barra scroll vertical
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER); //Se tablece la política en NEVER para la barra horizontal
+        contentPanel.add(scrollPane, BorderLayout.CENTER); //Se añade al panel
     }
 
 }
