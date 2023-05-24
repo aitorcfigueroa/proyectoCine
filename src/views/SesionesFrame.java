@@ -259,7 +259,7 @@ public class SesionesFrame extends JFrame {
         peliculasPanel.add(panelPelicula2);
 
 
-        // Evento al pasar el ratón por encima de la película 2
+        //Evento al pasar el ratón por encima de la película 2
         labelPelicula2.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -269,5 +269,9 @@ public class SesionesFrame extends JFrame {
         });
 
 
+        // Película 3
+        JPanel panelPelicula3 = new JPanel(new BorderLayout()); //Creamos un panel para recoger la "Pelicula3" con BorderLayout
+        panelPelicula3.setBackground(Color.DARK_GRAY); //Color de fondo del panel
+        panelPelicula3.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); //Borde vacío con un margen de 10 píxeles en cada lado del panel
     }
 }
