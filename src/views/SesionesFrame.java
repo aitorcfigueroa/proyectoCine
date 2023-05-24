@@ -365,7 +365,7 @@ public class SesionesFrame extends JFrame {
         tituloPelicula4.setAlignmentX(Component.CENTER_ALIGNMENT); //Se alinea el JLabel en el eje X al centro
         panelInfo4.add(tituloPelicula4); //Se añade la etiqueta del titulo al panel de info4 de la cuarta película
 
-        //Creamos un nuevo JPanel llamado panelBotones3
+        //Creamos un nuevo JPanel llamado panelBotones4
         JPanel panelBotones4 = new JPanel();
         panelBotones4.setBackground(Color.DARK_GRAY); //Color de fondo del panel
         panelBotones4.setLayout(new FlowLayout(FlowLayout.CENTER)); //Se establece un nuevo FlowLayout con alineación al centro en el panelBotones4
@@ -420,6 +420,21 @@ public class SesionesFrame extends JFrame {
 
         JLabel labelPelicula5 = new JLabel(pelicula5Scaled); //Creamos un nuevo JLabel con la imagen escalada de la película 5
         panelPelicula5.add(labelPelicula5, BorderLayout.CENTER); //Posicionamos el Jlabel en el centro
+
+        //Se crea un nuevo JPanel llamado panelInfo5 para recoger la información de la quinta película
+        JPanel panelInfo5 = new JPanel();
+        panelInfo5.setBackground(Color.DARK_GRAY); //Color de fondo del panel
+        panelInfo5.setLayout(new BoxLayout(panelInfo5, BoxLayout.Y_AXIS)); //Se establece un BoxLayout con orientación vertical en el panelInfo5
+        //Agregar espacio entre la imagen y el título
+        panelInfo5.add(Box.createVerticalStrut(20));
+
+        JLabel tituloPelicula5 = new JLabel("VIOLETA EL HADA TRAVIESA");  //Etiqueta con el título de la película
+        tituloPelicula5.setForeground(Color.WHITE); //Color del texto
+        tituloPelicula5.setHorizontalAlignment(SwingConstants.CENTER); //Se alinea el texto del JLabel al centro-horizontal
+        tituloPelicula5.setAlignmentX(Component.CENTER_ALIGNMENT); //Se alinea el JLabel en el eje X al centro
+        panelInfo5.add(tituloPelicula5); //Se añade la etiqueta del titulo al panel de info5 de la quinta película
+
+
     }
 
 }
