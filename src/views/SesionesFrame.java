@@ -84,7 +84,6 @@ public class SesionesFrame extends JFrame {
         contentPanel.setBackground(Color.DARK_GRAY);
 
 
-
         //Encabezado
         JPanel headerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER)); //Creamos un panel para el header
         Color headerColor = Color.decode("#4D9694"); //Establecemos el color para el header
@@ -400,6 +399,17 @@ public class SesionesFrame extends JFrame {
 
         panelPelicula4.add(panelInfo4, BorderLayout.SOUTH); //Añadimos el panelInfo4 al panelPelicula4 al sur
         peliculasPanel.add(panelPelicula4); //Añadimos el panelPelicula4 al peliculasPanel
+
+        //Evento al pasar el ratón por encima de la película 4
+        labelPelicula4.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                ToolTipManager.sharedInstance().setInitialDelay(0);
+                panelPelicula4.setToolTipText("Título: Película 4\nDirector: Director 4\nAño: 2023\nDuración: 95 minutos\nSinopsis: Sinopsis de la película 4");
+            }
+        });
+
+    }
 
     }
 }
