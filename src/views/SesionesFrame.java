@@ -414,7 +414,12 @@ public class SesionesFrame extends JFrame {
         panelPelicula5.setBackground(Color.DARK_GRAY); //Color de fondo del panel
         panelPelicula5.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); //Borde vacío con un margen de 10 píxeles en cada lado del panel
 
+        ImageIcon pelicula5 = new ImageIcon("../resources/peli5.png");//Cargamos la imagen de la película5 desde la ruta relativa
+        Image imagen5 = pelicula5.getImage().getScaledInstance(200, -1, Image.SCALE_SMOOTH); //Se obtiene la imagen y se escala al tamaño deseado
+        ImageIcon pelicula5Scaled = new ImageIcon(imagen5);  //Se crea un nuevo ImageIcon con la imagen escalada de la película 5
 
+        JLabel labelPelicula5 = new JLabel(pelicula5Scaled); //Creamos un nuevo JLabel con la imagen escalada de la película 5
+        panelPelicula5.add(labelPelicula5, BorderLayout.CENTER); //Posicionamos el Jlabel en el centro
     }
 
 }
