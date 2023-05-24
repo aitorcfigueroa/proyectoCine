@@ -552,6 +552,25 @@ public class SesionesFrame extends JFrame {
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS); //Barra scroll vertical
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER); //Se tablece la política en NEVER para la barra horizontal
         contentPanel.add(scrollPane, BorderLayout.CENTER); //Se añade al panel
+
+        //Footer
+        JPanel footerPanel = new JPanel(new BorderLayout()); //Creamos un nuevo JPanel llamado footerPanel con BorderLayout para organizar los componentes
+        footerPanel.setBackground(Color.GRAY); //Color de fondo del panel
+        JPanel footerTextPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));// Creamos un JPanel llamado footerTextPanel
+        footerTextPanel.setBackground(Color.GRAY); //Color de fondo del panel
+
+        JLabel footerLabel = new JLabel("Aitor Couñago - Ángela Serantes © 2023 "); //Creamos un nuevo Jlabel con el texto del footer
+        footerLabel.setForeground(Color.WHITE); //Color del texto
+        footerLabel.setHorizontalAlignment(SwingConstants.CENTER); //Alineamos el texto al centro
+        footerTextPanel.add(footerLabel); //Se añade la etiqueta al panel
+
+        footerPanel.add(footerTextPanel, BorderLayout.CENTER); //Posicionamos al centro el footertext
+
+        contentPanel.add(footerPanel, BorderLayout.SOUTH); //Posicionamos el panel al sur
+
+        setContentPane(contentPanel); //Establecemos el contentPane como el contentPanel
+        pack(); //Ajustamos la ventana según el contenido
+        setLocationRelativeTo(null); //Centramos la ventana en la pantalla
     }
 
 }
