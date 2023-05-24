@@ -353,5 +353,18 @@ public class SesionesFrame extends JFrame {
         JLabel labelPelicula4 = new JLabel(pelicula4Scaled); //Creamos un nuevo JLabel con la imagen escalada de la película 4
         panelPelicula4.add(labelPelicula4, BorderLayout.CENTER); //Posicionamos el Jlabel en el centro
 
+        //Se crea un nuevo JPanel llamado panelInfo4 para recoger la información de la cuarta película
+        JPanel panelInfo4 = new JPanel();
+        panelInfo4.setBackground(Color.DARK_GRAY); //Color de fondo del panel
+        panelInfo4.setLayout(new BoxLayout(panelInfo4, BoxLayout.Y_AXIS)); //Se establece un BoxLayout con orientación vertical en el panelInfo4
+        //Agregar espacio entre la imagen y el título
+        panelInfo4.add(Box.createVerticalStrut(20));
+
+        JLabel tituloPelicula4 = new JLabel("¡VAYA VACACIONES!"); //Etiqueta con el título de la película
+        tituloPelicula4.setForeground(Color.WHITE); //Color del texto
+        tituloPelicula4.setHorizontalAlignment(SwingConstants.CENTER); //Se alinea el texto del JLabel al centro-horizontal
+        tituloPelicula4.setAlignmentX(Component.CENTER_ALIGNMENT); //Se alinea el JLabel en el eje X al centro
+        panelInfo4.add(tituloPelicula4); //Se añade la etiqueta del titulo al panel de info4 de la cuarta película
+
     }
 }
