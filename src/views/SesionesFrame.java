@@ -490,6 +490,20 @@ public class SesionesFrame extends JFrame {
         JLabel labelPelicula6 = new JLabel(pelicula6Scaled); //Creamos un nuevo JLabel con la imagen escalada de la película 6
         panelPelicula6.add(labelPelicula6, BorderLayout.CENTER); //Posicionamos el Jlabel en el centro
 
+        //Se crea un nuevo JPanel llamado panelInfo6 para recoger la información de la sexta película
+        JPanel panelInfo6 = new JPanel();
+        panelInfo6.setBackground(Color.DARK_GRAY); //color de fondo del panel
+        panelInfo6.setLayout(new BoxLayout(panelInfo6, BoxLayout.Y_AXIS)); //Se establece un BoxLayout con orientación vertical en el panelInfo6
+        //Agregamos espacio entre la imagen y el título
+        panelInfo6.add(Box.createVerticalStrut(20));
+
+        JLabel tituloPelicula6 = new JLabel("GUARDIANES DE LA GALAXIA"); //Etiqueta con el título de la película
+        tituloPelicula6.setForeground(Color.WHITE); //Color del texto
+        tituloPelicula6.setHorizontalAlignment(SwingConstants.CENTER); //Se alinea el texto del JLabel al centro-horizontal
+        tituloPelicula6.setAlignmentX(Component.CENTER_ALIGNMENT); //Se alinea el JLabel en el eje X al centro
+        panelInfo6.add(tituloPelicula6); //Se añade la etiqueta del titulo al panel de info6 de la sexta película
+
+
     }
 
 }
