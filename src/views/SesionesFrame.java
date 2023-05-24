@@ -409,7 +409,13 @@ public class SesionesFrame extends JFrame {
             }
         });
 
-    }
+        //Película 5
+        JPanel panelPelicula5 = new JPanel(new BorderLayout()); //Creamos un panel para recoger la "Pelicula5" con BorderLayout
+        panelPelicula5.setBackground(Color.DARK_GRAY); //Color de fondo del panel
+        panelPelicula5.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); //Borde vacío con un margen de 10 píxeles en cada lado del panel
+
 
     }
+
 }
+
