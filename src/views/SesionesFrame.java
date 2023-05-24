@@ -478,6 +478,13 @@ public class SesionesFrame extends JFrame {
             }
         });
 
+        //Película 6
+        JPanel panelPelicula6 = new JPanel(new BorderLayout());
+        panelPelicula6.setBackground(Color.DARK_GRAY); //color de fondo del panel
+        panelPelicula6.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); //Borde vacío con un margen de 10 píxeles en cada lado del panel
+
+
+
     }
 
 }
