@@ -4,6 +4,8 @@ import javax.swing.plaf.FontUIResource;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 
@@ -17,13 +19,26 @@ public class Inicio {
         ventana.getContentPane().setBackground(Color.DARK_GRAY);
 
         //Carga de la fuente Montserrat-Medium
-        Font montserratMedium = loadFont("C:\\Users\\Angela\\IdeaProjects\\proyectoCine\\resources\\Montserrat-Medium.ttf");
+        Font montserratMedium = loadFont("../resources/Montserrat-Medium.ttf");
 
         //Se establece la fuente para el proyecto
         setUIFont(new FontUIResource(montserratMedium));
 
         //Se crea la barra de menú
         JMenuBar menuBar = new JMenuBar();
+
+        //Se añade un header
+        JPanel headerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        Color headerColor = Color.decode("#4D9694");
+        headerPanel.setBackground(headerColor);
+
+        JLabel headerLabel = new JLabel("Bienvenidas y bienvenidos a CineScript");
+        headerLabel.setFont(montserratMedium.deriveFont(Font.PLAIN, 18));
+
+        headerPanel.add(headerLabel);
+
+        ventana.setLayout(new BorderLayout());
+        ventana.add(headerPanel, BorderLayout.NORTH);
 
         //Creamos el panel izquierdo para mantener los elementos que queremos alineados a la izquierda en la barra de menú
         JPanel panelIzquierdo = new JPanel();
@@ -45,6 +60,12 @@ public class Inicio {
         labelIniciarSesion.setFont(montserratMedium);
         panelDerecho.add(labelIniciarSesion);
 
+        //Establecemos el hand cursor para los botones de menú
+        labelInicio.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        labelCartelera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        labelComprarEntradas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        labelIniciarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
         //Agregamos los paneles con las posiciones a la barra de menú
         menuBar.add(panelIzquierdo);
         menuBar.add(Box.createHorizontalGlue());
@@ -54,11 +75,11 @@ public class Inicio {
         ventana.setJMenuBar(menuBar);
 
         //Cargamos el archivo GIF mientras está en construcción la página
-        ImageIcon gifIcon = new ImageIcon("C:\\Users\\Angela\\IdeaProjects\\proyectoCine\\resources\\logo1.gif");
+        ImageIcon gifIcon = new ImageIcon("../resources/logo1.gif");
         JLabel gifLabel = new JLabel(gifIcon);
 
         //Cargamos la imagen lateral, que vamos a usar en ambos laterales
-        ImageIcon lateralIcon = new ImageIcon("C:\\Users\\Angela\\IdeaProjects\\proyectoCine\\resources\\lateral2.png");
+        ImageIcon lateralIcon = new ImageIcon("../resources/lateral2.png");
         JLabel lateralLabelLeft = new JLabel(lateralIcon);
         JLabel lateralLabelRight = new JLabel(lateralIcon);
 
@@ -98,6 +119,16 @@ public class Inicio {
 
         //Hacemos visible la ventana
         ventana.setVisible(true);
+
+
+        // Agregar ActionListener al labelComprarEntradas
+        labelComprarEntradas.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // Abrir la ventana SesionesFrame al hacer clic en "Comprar entradas"
+                abrirVentanaSesiones();
+            }
+        });
     }
 
     //Método para cargar la fuente desde un archivo .ttf
@@ -143,5 +174,18 @@ public class Inicio {
         UIManager.put("ToolBar.font", font);
         UIManager.put("ToolTip.font", font);
         UIManager.put("Tree.font", font);
+    }
+    /**
+     * Abre la ventana de SesionesFrame para mostrar las sesiones disponibles.
+     * Se ejecuta en el hilo de despacho de eventos de Swing para garantizar la
+     * sincronización correcta con la interfaz de usuario.
+     */
+    private static void abrirVentanaSesiones() {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                SesionesFrame sesionesFrame = new SesionesFrame();
+                sesionesFrame.setVisible(true);
+            }
+        });
     }
 }
