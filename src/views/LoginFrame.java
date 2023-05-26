@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.IOException;
 
 public class LoginFrame extends JFrame {
     private JPanel headerPanel;
@@ -258,5 +260,83 @@ public class LoginFrame extends JFrame {
         formularioPanel.add(iniciarSesionButton, gbc);
 
         return formularioPanel;
+    }
+
+    //Método para cargar la fuente desde un archivo .ttf
+    private Font loadFont(String fontFileName) {
+        try {
+            return Font.createFont(Font.TRUETYPE_FONT, new File(fontFileName)).deriveFont(Font.PLAIN, 14);
+        } catch (FontFormatException | IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    //Método para establecer la fuente predeterminada para el proyecto en su conjunto
+    private static void setUIFont(FontUIResource font) {
+        // Configurar la fuente para todos los componentes de la interfaz de usuario
+        UIManager.put("Button.font", font);
+        UIManager.put("ToggleButton.font", font);
+        UIManager.put("RadioButton.font", font);
+        UIManager.put("CheckBox.font", font);
+        UIManager.put("ColorChooser.font", font);
+        UIManager.put("ComboBox.font", font);
+        UIManager.put("Label.font", font);
+        UIManager.put("List.font", font);
+        UIManager.put("MenuBar.font", font);
+        UIManager.put("MenuItem.font", font);
+        UIManager.put("RadioButtonMenuItem.font", font);
+        UIManager.put("CheckBoxMenuItem.font", font);
+        UIManager.put("Menu.font", font);
+        UIManager.put("PopupMenu.font", font);
+        UIManager.put("OptionPane.font", font);
+        UIManager.put("Panel.font", font);
+        UIManager.put("ProgressBar.font", font);
+        UIManager.put("ScrollPane.font", font);
+        UIManager.put("Viewport.font", font);
+        UIManager.put("TabbedPane.font", font);
+        UIManager.put("Table.font", font);
+        UIManager.put("TableHeader.font", font);
+        UIManager.put("TextField.font", font);
+        UIManager.put("PasswordField.font", font);
+        UIManager.put("TextArea.font", font);
+        UIManager.put("TextPane.font", font);
+        UIManager.put("EditorPane.font", font);
+        UIManager.put("TitledBorder.font", font);
+        UIManager.put("ToolBar.font", font);
+        UIManager.put("ToolTip.font", font);
+        UIManager.put("Tree.font", font);
+    }
+
+    private void mostrarVentanaInicio() {
+        Inicio inicio = new Inicio();
+        inicio.setVisible(true);
+        dispose(); //Cerrar la ventana
+    }
+
+    private static void abrirCarteleraFrame() {
+        CarteleraFrame carteleraFrame = new CarteleraFrame();
+        carteleraFrame.mostrarVentana();
+    }
+
+    //abrir ventana con sesiones al hacer click en comprar entradas
+    private static void abrirVentanaSesiones() {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                SesionesFrame sesionesFrame = new SesionesFrame();
+                sesionesFrame.setVisible(true);
+            }
+        });
+    }
+
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                LoginFrame loginFrame = new LoginFrame();
+                loginFrame.setVisible(true);
+            }
+        });
     }
 }
