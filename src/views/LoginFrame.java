@@ -49,6 +49,18 @@ public class LoginFrame extends JFrame {
         JMenuBar menuBar = createMenuBar();
         setJMenuBar(menuBar);
 
+        //footer
+        //Creamos el JPanel para el footer
+        footerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        footerPanel.setBackground(Color.GRAY);
+
+        //Creamos el JLabel con el texto del footer
+        JLabel footerLabel = new JLabel("Aitor Couñago - Ángela Serantes © 2023 ");
+        footerLabel.setForeground(Color.WHITE);
+
+        //Añadimos el JLabel al JPanel del footer
+        footerPanel.add(footerLabel);
+
     }
 
 }
