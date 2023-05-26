@@ -99,5 +99,12 @@ public class CarteleraFrame extends JFrame {
                 menuDesplegable.show(labelIniciarSesion, 0, labelIniciarSesion.getHeight());
             }
         });
+
+        //Cursor de la mano para los botones de menú
+        labelInicio.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        labelCartelera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        labelComprarEntradas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        labelIniciarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
     }
 }
