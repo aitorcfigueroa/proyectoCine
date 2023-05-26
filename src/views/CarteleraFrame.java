@@ -106,5 +106,14 @@ public class CarteleraFrame extends JFrame {
         labelComprarEntradas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         labelIniciarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
+        //Agregamos los paneles con las posiciones a la barra de menú
+        menuBar.add(panelIzquierdo);
+        menuBar.add(Box.createHorizontalGlue());
+        menuBar.add(panelDerecho);
+
+        //Asignamos la barra de menú a la ventana
+        ventana.setJMenuBar(menuBar);
+
+
     }
 }
