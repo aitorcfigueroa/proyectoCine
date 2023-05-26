@@ -239,5 +239,76 @@ public class CarteleraFrame extends JFrame {
         });
     }
 
+    /**
+     * Añadimos el carrusel de imágenes al panel principal.
+     * @param parentPanel El panel al que se agregará el carrusel de imágenes.
+     * @param ventana La ventana principal del programa.
+     */
+    private static void addImageCarousel(JPanel parentPanel, JFrame ventana) {
+        //Creamos el panel del carrusel con un BorderLayout
+        JPanel carouselPanel = new JPanel(new BorderLayout());
+        carouselPanel.setBackground(Color.DARK_GRAY);
 
+        //Etiqueta que sirve para visualizar las imágenes centradas en el carrusel
+        JLabel imageLabel = new JLabel();
+        imageLabel.setHorizontalAlignment(JLabel.CENTER);
+        imageLabel.setVerticalAlignment(JLabel.CENTER);
+
+        //Color para los botones del carrusel
+        Color buttonColor = Color.decode("#4D9694");
+
+        //Botón para ir a la imagen anterior
+        JButton previousButton = new JButton("<");
+        previousButton.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 24));
+        previousButton.setForeground(buttonColor);
+        previousButton.setOpaque(false);
+        previousButton.setContentAreaFilled(false);
+        previousButton.setBorderPainted(false);
+        previousButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                currentIndex = (currentIndex - 1 + IMAGE_PATHS.length) % IMAGE_PATHS.length;
+                updateImage(imageLabel, ventana);
+            }
+        });
+
+        //Botón para ir a la siguiente imagen
+        JButton nextButton = new JButton(">");
+        nextButton.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 24));
+        nextButton.setForeground(buttonColor); // Asignar el color a los botones
+        nextButton.setOpaque(false);
+        nextButton.setContentAreaFilled(false);
+        nextButton.setBorderPainted(false);
+        nextButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                currentIndex = (currentIndex + 1) % IMAGE_PATHS.length;
+                updateImage(imageLabel, ventana);
+            }
+        });
+
+        //Panel para los botones
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setBackground(Color.DARK_GRAY);
+        buttonPanel.setLayout(new BorderLayout());
+        buttonPanel.add(previousButton, BorderLayout.WEST);
+        buttonPanel.add(nextButton, BorderLayout.EAST);
+
+        //Añadimos la etiqueta de la imagen y el panel de botones al panel del carrusel
+        carouselPanel.add(imageLabel, BorderLayout.CENTER);
+        carouselPanel.add(buttonPanel, BorderLayout.SOUTH);
+
+        //Añadimos el panel del carrusel al panel principal
+        parentPanel.add(carouselPanel, BorderLayout.CENTER);
+
+        //Se configura y empieza el temporizador para cambiar automáticamente las imágenes
+        timer = new Timer(SLIDE_DELAY, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                currentIndex = (currentIndex + 1) % IMAGE_PATHS.length;
+                updateImage(imageLabel, ventana);
+            }
+        });
+        timer.start();
+    }
 }
