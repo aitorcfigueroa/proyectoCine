@@ -61,6 +61,42 @@ public class LoginFrame extends JFrame {
         //Añadimos el JLabel al JPanel del footer
         footerPanel.add(footerLabel);
 
+        //Creamos el JPanel principal
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new BorderLayout());
+        mainPanel.setBackground(Color.DARK_GRAY);
+
+        //Creamos el JPanel para el espacio adicional en la parte superior
+        JPanel topSpacePanel = new JPanel();
+        topSpacePanel.setOpaque(false);
+        topSpacePanel.setPreferredSize(new Dimension(1, 100)); //Ajustamos el tamaño del espacio superior
+        topSpacePanel.setBackground(Color.DARK_GRAY);
+
+        //Creamos el JPanel para el espacio adicional en la parte inferior
+        JPanel bottomSpacePanel = new JPanel();
+        bottomSpacePanel.setOpaque(false);
+        bottomSpacePanel.setPreferredSize(new Dimension(1, 100)); // Ajustamos el tamaño del espacio inferior
+        bottomSpacePanel.setBackground(Color.DARK_GRAY);
+
+        //Creamos el JPanel para contener los componentes laterales, el formulario y el espacio adicional
+        JPanel contentPanel = new JPanel(new BorderLayout());
+        contentPanel.setOpaque(false); //Establecemos el fondo como transparente
+
+        //Creamos el JPanel para el espacio a la izquierda del formulario
+        JPanel leftSpacePanel = new JPanel();
+        leftSpacePanel.setOpaque(false);
+        leftSpacePanel.setPreferredSize(new Dimension(350, 1)); //Ajustamos el tamaño del espacio izquierdo
+        leftSpacePanel.setBackground(Color.DARK_GRAY); //Establecemos el color de fondo de los laterales
+
+        //Creamos el JPanel para el espacio a la derecha del formulario
+        JPanel rightSpacePanel = new JPanel();
+        rightSpacePanel.setOpaque(false);
+        rightSpacePanel.setPreferredSize(new Dimension(350, 1)); //Ajustamos el tamaño del espacio derecho
+        rightSpacePanel.setBackground(Color.DARK_GRAY); //Color de fondo de los laterales
+
+        //Creamos el formulario de inicio de sesión
+        JPanel formularioPanel = createFormularioPanel();
+
     }
 
 }
