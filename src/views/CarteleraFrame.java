@@ -218,6 +218,26 @@ public class CarteleraFrame extends JFrame {
         UIManager.put("ToolTip.font", font);
         UIManager.put("Tree.font", font);
     }
+    /**
+     * Muestra la ventana de inicio y cierra la ventana actual.
+     */
+    private void mostrarVentanaInicio() {
+        Inicio inicio = new Inicio();
+        inicio.setVisible(true);
+        dispose(); // Cerrar la ventana
+    }
+
+    /**
+     * Abre la ventana de sesiones en un hilo de eventos de Swing.
+     */
+    private static void abrirVentanaSesiones() {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                SesionesFrame sesionesFrame = new SesionesFrame();
+                sesionesFrame.setVisible(true);
+            }
+        });
+    }
 
 
 }
