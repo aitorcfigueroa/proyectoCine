@@ -3,6 +3,8 @@ package views;
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class CarteleraFrame extends JFrame {
 
@@ -35,6 +37,36 @@ public class CarteleraFrame extends JFrame {
 
         //Se establece la fuente para el proyecto
         setUIFont(new FontUIResource(montserratMedium));
+
+        //barra de menú
+        JMenuBar menuBar = new JMenuBar();
+
+        //Creamos el panel izquierdo para mantener los elementos que queremos alineados a la izquierda en la barra de menú
+        JPanel panelIzquierdo = new JPanel();
+        panelIzquierdo.setLayout(new FlowLayout(FlowLayout.LEFT));
+        JLabel labelInicio = new JLabel("Inicio");
+        labelInicio.setFont(montserratMedium);
+        labelInicio.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        panelIzquierdo.add(labelInicio);
+        JLabel labelCartelera = new JLabel("Cartelera");
+        labelCartelera.setFont(montserratMedium);
+        panelIzquierdo.add(labelCartelera);
+        labelInicio.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                mostrarVentanaInicio();
+            }
+        });
+
+        //Creamos el panel derecho para mantener los elementos que queremos alineados a la derecha en la barra de menú
+        JPanel panelDerecho = new JPanel();
+        panelDerecho.setLayout(new FlowLayout(FlowLayout.RIGHT));
+        JLabel labelComprarEntradas = new JLabel("Comprar entradas");
+        labelComprarEntradas.setFont(montserratMedium);
+        panelDerecho.add(labelComprarEntradas);
+        JLabel labelIniciarSesion = new JLabel("Iniciar sesión");
+        labelIniciarSesion.setFont(montserratMedium);
+        panelDerecho.add(labelIniciarSesion);
 
     }
 }
