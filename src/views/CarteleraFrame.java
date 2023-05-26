@@ -1,6 +1,7 @@
 package views;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class CarteleraFrame extends JFrame {
 
@@ -18,4 +19,15 @@ public class CarteleraFrame extends JFrame {
 
     private static int currentIndex = 0; //Índice de la imagen actual en el carrusel
     private static Timer timer;  //Temporizador utilizado para cambiar automáticamente las imágenes en el carrusel
+
+    /**
+     * Muestra la ventana principal de la cartelera.
+     */
+    public void mostrarVentana() {
+        JFrame ventana = new JFrame("CineScript - Cartelera");
+        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ventana.getContentPane().setBackground(Color.DARK_GRAY);
+        ventana.setLayout(new BorderLayout());
+
+    }
 }
