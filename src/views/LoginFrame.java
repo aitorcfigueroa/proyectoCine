@@ -31,6 +31,24 @@ public class LoginFrame extends JFrame {
         JLabel lateralLabelLeft = new JLabel(lateralIcon);
         JLabel lateralLabelRight = new JLabel(lateralIcon);
 
+
+        //Encabezado
+        //Creamos el JPanel para el encabezado
+        headerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        headerPanel.setBackground(Color.decode("#4D9694"));
+
+        //Creamos el JLabel con el texto del encabezado
+        JLabel headerLabel = new JLabel("Inicia sesión");
+        headerLabel.setFont(new Font(montserratMedium.getName(), Font.PLAIN, 18));
+        headerLabel.setForeground(Color.WHITE);
+
+        //Añadimos el JLabel al JPanel del encabezado
+        headerPanel.add(headerLabel);
+
+        //Crear la barra de menú
+        JMenuBar menuBar = createMenuBar();
+        setJMenuBar(menuBar);
+
     }
 
 }
