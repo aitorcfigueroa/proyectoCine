@@ -1,6 +1,8 @@
 package views;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.FontUIResource;
 import java.awt.*;
 
@@ -96,6 +98,15 @@ public class LoginFrame extends JFrame {
 
         //Creamos el formulario de inicio de sesión
         JPanel formularioPanel = createFormularioPanel();
+
+        //Márgenes internos del formularioPanel
+        Border formularioMargin = new EmptyBorder(10, 10, 10, 10);
+        formularioPanel.setBorder(formularioMargin);
+
+        //Borde con esquinas redondeadas y grosor al formulario
+        int radius = 40; // Radio de las esquinas redondeadas
+        Border roundedBorder = new RoundBorder(radius, 6, Color.BLACK);
+        formularioPanel.setBorder(roundedBorder);
 
     }
 
