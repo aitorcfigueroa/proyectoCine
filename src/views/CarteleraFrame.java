@@ -116,5 +116,19 @@ public class CarteleraFrame extends JFrame {
 
         //Carga imagen para laterales
         ImageIcon lateralIcon = new ImageIcon("../resources/lateral2.png");
+
+        //Añadimos enncabezado
+
+        JPanel headerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        headerPanel.setBackground(Color.GRAY);
+
+        JLabel headerLabel = new JLabel("Cartelera CineScript");
+        Color headerColor = Color.decode("#4D9694");
+        headerPanel.setBackground(headerColor);
+        headerLabel.setFont(montserratMedium.deriveFont(Font.PLAIN, 18));
+        headerLabel.setForeground(Color.WHITE);
+
+        headerPanel.add(headerLabel);
+
     }
 }
