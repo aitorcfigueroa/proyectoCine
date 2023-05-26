@@ -25,6 +25,12 @@ public class LoginFrame extends JFrame {
 
         //Se establece la fuente para el proyecto
         setUIFont(new FontUIResource(montserratMedium));
+
+        //Cargamos las imágenes laterales
+        ImageIcon lateralIcon = new ImageIcon("../resources/lateral2.png");
+        JLabel lateralLabelLeft = new JLabel(lateralIcon);
+        JLabel lateralLabelRight = new JLabel(lateralIcon);
+
     }
 
 }
