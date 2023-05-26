@@ -108,6 +108,27 @@ public class LoginFrame extends JFrame {
         Border roundedBorder = new RoundBorder(radius, 6, Color.BLACK);
         formularioPanel.setBorder(roundedBorder);
 
+        //Añadimos los componentes al BorderLayout
+        contentPanel.add(topSpacePanel, BorderLayout.NORTH);
+        contentPanel.add(leftSpacePanel, BorderLayout.WEST);
+        contentPanel.add(rightSpacePanel, BorderLayout.EAST);
+        contentPanel.add(formularioPanel, BorderLayout.CENTER);
+        contentPanel.add(bottomSpacePanel, BorderLayout.SOUTH);
+
+        //Añadimos los componentes al BorderLayout
+        mainPanel.add(lateralLabelLeft, BorderLayout.WEST);
+        mainPanel.add(lateralLabelRight, BorderLayout.EAST);
+        mainPanel.add(contentPanel, BorderLayout.CENTER);
+
+        //Añadimos los componentes al BorderLayout
+        add(headerPanel, BorderLayout.NORTH);
+        add(mainPanel, BorderLayout.CENTER);
+        add(footerPanel, BorderLayout.SOUTH);
+
+        //tamaño de la ventana
+        setSize(1600, 900);
+        setLocationRelativeTo(null); //Centrar la ventana en la pantalla
+
     }
 
 }
