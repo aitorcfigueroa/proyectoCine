@@ -14,5 +14,8 @@ public class CarteleraFrame extends JFrame {
             "../resources/peli6.png"
     };
 
+    private static final int SLIDE_DELAY = 2400; //Tiempo para el cambio de dispositivas
 
+    private static int currentIndex = 0; //Índice de la imagen actual en el carrusel
+    private static Timer timer;  //Temporizador utilizado para cambiar automáticamente las imágenes en el carrusel
 }
