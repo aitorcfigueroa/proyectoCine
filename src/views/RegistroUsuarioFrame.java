@@ -4,10 +4,14 @@ import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.FontUIResource;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
-public class RegistroUsuarioFrame {
-    private JFrame frame;
+public class RegistroUsuarioFrame  extends JFrame{
+    private JPanel headerPanel;
     private JPanel panelIzquierdo;
     private JPanel panelDerecho;
     private JPanel footerPanel;
@@ -18,25 +22,38 @@ public class RegistroUsuarioFrame {
 
     public RegistroUsuarioFrame() {
         //Configuramos la ventana principal
-        frame = new JFrame("Registro de Usuario");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().setBackground(Color.DARK_GRAY);
-        frame.setLayout(new BorderLayout());
+        setTitle("Registro de Usuario");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        getContentPane().setBackground(Color.DARK_GRAY);
+        setLayout(new BorderLayout());
 
         //Cargamos la fuente Montserrat-Medium desde un archivo .ttf
-        Font montserratMedium = loadFont("C:\\Users\\Angela\\IdeaProjects\\proyectoCine\\resources\\Montserrat-Medium.ttf");
+        Font montserratMedium = loadFont("../resources/Montserrat-Medium.ttf");
 
         //Establecemos la fuente Montserrat-Medium como la fuente predeterminada para el proyecto
         setUIFont(new FontUIResource(montserratMedium));
 
         //Añadimos la imagen lateral que vamos a usar en ambos laterales de la ventana
-        ImageIcon lateralIcon = new ImageIcon("C:\\Users\\Angela\\IdeaProjects\\proyectoCine\\resources\\lateral2.png");
+        ImageIcon lateralIcon = new ImageIcon("../resources/lateral2.png");
         JLabel lateralLabelLeft = new JLabel(lateralIcon);
         JLabel lateralLabelRight = new JLabel(lateralIcon);
 
+        //Creamos el JPanel para el encabezado
+        headerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        headerPanel.setBackground(Color.decode("#4D9694"));
+
+        //Creamos el JLabel con el texto del encabezado
+        JLabel headerLabel = new JLabel("Registro de Usuario");
+        headerLabel.setFont(new Font(montserratMedium.getName(), Font.PLAIN, 18));
+        headerLabel.setForeground(Color.WHITE);
+
+        //Añadimos el JLabel al JPanel del encabezado
+        headerPanel.add(headerLabel);
+
+
         //Creamos la barra de menú
         JMenuBar menuBar = createMenuBar();
-        frame.setJMenuBar(menuBar);
+        setJMenuBar(menuBar);
 
         //Creamos un JPanel para el footer
         footerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -74,7 +91,7 @@ public class RegistroUsuarioFrame {
         //Crear el JPanel para el espacio a la izquierda del formulario
         JPanel leftSpacePanel = new JPanel();
         leftSpacePanel.setOpaque(false);
-        leftSpacePanel.setPreferredSize(new Dimension(350, 1)); // Ajustar el tamaño del espacio izquierdo
+        leftSpacePanel.setPreferredSize(new Dimension(350, 1)); //Ajustar el tamaño del espacio izquierdo
         leftSpacePanel.setBackground(Color.DARK_GRAY); // Establecer el color de fondo de los laterales
 
         //Crear el JPanel para el espacio a la derecha del formulario
@@ -108,13 +125,13 @@ public class RegistroUsuarioFrame {
         mainPanel.add(contentPanel, BorderLayout.CENTER);
 
         //Agregamos los componentes al BorderLayout
-        frame.add(mainPanel, BorderLayout.CENTER);
-        frame.add(footerPanel, BorderLayout.SOUTH);
+        add(headerPanel, BorderLayout.NORTH);
+        add(mainPanel, BorderLayout.CENTER);
+        add(footerPanel, BorderLayout.SOUTH);
 
         //Establecemos el tamaño de la ventana
-        frame.setSize(1600, 900);
-        frame.setLocationRelativeTo(null); //Centrar la ventana en la pantalla
-        frame.setVisible(true);
+        setSize(1600, 900);
+        setLocationRelativeTo(null); //Centrar la ventana en la pantalla
     }
     private JMenuBar createMenuBar() {
         JMenuBar menuBar = new JMenuBar();
@@ -124,20 +141,75 @@ public class RegistroUsuarioFrame {
         panelIzquierdo.setLayout(new FlowLayout(FlowLayout.LEFT));
         JLabel labelInicio = new JLabel("Inicio");
         labelInicio.setFont(panelIzquierdo.getFont());
+        labelInicio.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         panelIzquierdo.add(labelInicio);
         JLabel labelCartelera = new JLabel("Cartelera");
         labelCartelera.setFont(panelIzquierdo.getFont());
+        labelCartelera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         panelIzquierdo.add(labelCartelera);
+
+        labelInicio.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                mostrarVentanaInicio();
+            }
+        });
+        //Botón de Cartelera
+        labelCartelera.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                abrirCarteleraFrame();
+            }
+        });
 
         //Crear el panel derecho para los elementos alineados a la derecha
         panelDerecho = new JPanel();
         panelDerecho.setLayout(new FlowLayout(FlowLayout.RIGHT));
         JLabel labelComprarEntradas = new JLabel("Comprar entradas");
         labelComprarEntradas.setFont(panelDerecho.getFont());
+        labelComprarEntradas.setCursor(new Cursor(Cursor.HAND_CURSOR));
         panelDerecho.add(labelComprarEntradas);
         JLabel labelIniciarSesion = new JLabel("Iniciar sesión");
+        labelIniciarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         labelIniciarSesion.setFont(panelDerecho.getFont());
         panelDerecho.add(labelIniciarSesion);
+        // Crear el menú desplegable de "Iniciar sesión"
+        JPopupMenu menuDesplegable = new JPopupMenu();
+        JMenuItem opcionLogin = new JMenuItem("Login");
+        JMenuItem opcionRegistro = new JMenuItem("Regístrate");
+        menuDesplegable.add(opcionLogin);
+        menuDesplegable.add(opcionRegistro);
+
+        opcionLogin.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LoginFrame loginFrame = new LoginFrame();
+                loginFrame.setVisible(true);
+            }
+        });
+
+        opcionRegistro.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RegistroUsuarioFrame registroUsuarioFrame = new RegistroUsuarioFrame();
+                registroUsuarioFrame.mostrarVentana();
+            }
+        });
+
+        labelIniciarSesion.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                menuDesplegable.show(labelIniciarSesion, 0, labelIniciarSesion.getHeight());
+            }
+        });
+
+        // Agregar ActionListener al labelComprarEntradas
+        labelComprarEntradas.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                abrirVentanaSesiones();
+            }
+        });
 
         //Agregar los paneles a la barra de menú
         menuBar.add(panelIzquierdo);
@@ -153,54 +225,43 @@ public class RegistroUsuarioFrame {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.insets = new Insets(5, 5, 40, 5); // Márgenes internos
 
-        //Creamos componente para el texto de registro y determinamos la posición con grid
-        JLabel textoAdicionalLabel = new JLabel("¡Regístrate en CineScript!");
-        textoAdicionalLabel.setForeground(Color.WHITE);
-        gbc.gridx = 1;
-        gbc.gridy = 0;
-        gbc.gridwidth = 2;
-        gbc.anchor = GridBagConstraints.CENTER;
-        formularioPanel.add(textoAdicionalLabel, gbc);
-
-        //Creamos componentes del formulario y determinamos la posición con grid
+        // Crear componentes del formulario
         JLabel nombreLabel = new JLabel("Nombre:");
         nombreLabel.setForeground(Color.WHITE);
         gbc.gridx = 0;
-        gbc.gridy = 1;
-        gbc.gridwidth = 1;
-        gbc.anchor = GridBagConstraints.LINE_START;
+        gbc.gridy = 0;
         formularioPanel.add(nombreLabel, gbc);
 
         nombreTextField = new JTextField(20);
         gbc.gridx = 1;
-        gbc.gridy = 1;
+        gbc.gridy = 0;
         formularioPanel.add(nombreTextField, gbc);
 
         JLabel correoLabel = new JLabel("Correo electrónico:");
         correoLabel.setForeground(Color.WHITE);
         gbc.gridx = 0;
-        gbc.gridy = 2;
+        gbc.gridy = 1;
         formularioPanel.add(correoLabel, gbc);
 
         correoTextField = new JTextField(20);
         gbc.gridx = 1;
-        gbc.gridy = 2;
+        gbc.gridy = 1;
         formularioPanel.add(correoTextField, gbc);
 
         JLabel contrasenaLabel = new JLabel("Contraseña:");
         contrasenaLabel.setForeground(Color.WHITE);
         gbc.gridx = 0;
-        gbc.gridy = 3;
+        gbc.gridy = 2;
         formularioPanel.add(contrasenaLabel, gbc);
 
         contrasenaPasswordField = new JPasswordField(20);
         gbc.gridx = 1;
-        gbc.gridy = 3;
+        gbc.gridy = 2;
         formularioPanel.add(contrasenaPasswordField, gbc);
 
         registrarButton = new JButton("Registrar");
         gbc.gridx = 1;
-        gbc.gridy = 4;
+        gbc.gridy = 3;
         formularioPanel.add(registrarButton, gbc);
 
         return formularioPanel;
@@ -250,14 +311,56 @@ public class RegistroUsuarioFrame {
         UIManager.put("ToolTip.font", font);
         UIManager.put("Tree.font", font);
     }
+    /**
+     * Muestra la ventana de inicio
+     */
+    private void mostrarVentanaInicio() {
+        Inicio inicio = new Inicio();
+        inicio.setVisible(true);
+        dispose(); // Cerrar la ventana
+    }
 
-    //Iniciamos la aplicación Swing al invocar el método run()
-    public static void main(String[] args) {
+    /**
+     * Muestra la ventana principal de la aplicación.
+     */
+    public void mostrarVentana() {
+        setVisible(true); //hace visible la ventana principal
+
+    }
+
+
+    /**
+     * Abre la ventana de la cartelera de películas.
+     * Este método crea una instancia de la cartelera de películas y lo muestra en la interfaz de usuario.
+     * La cartelera proporciona una visualización de las películas disponibles.
+     */
+    private static void abrirCarteleraFrame() {
+        CarteleraFrame carteleraFrame = new CarteleraFrame();
+        carteleraFrame.mostrarVentana();
+    }
+
+    /**
+     * Abre la ventana de sesiones en un hilo de eventos de Swing.
+     * Este método crea una instancia de la ventana de sesiones y la muestra en la interfaz de usuario.
+     * La ventana de sesiones permite al usuario ver y seleccionar la sesion deseada para las películas.
+     */
+    private static void abrirVentanaSesiones() {
         SwingUtilities.invokeLater(new Runnable() {
-            @Override
             public void run() {
-                new RegistroUsuarioFrame();
+                SesionesFrame sesionesFrame = new SesionesFrame();
+                sesionesFrame.setVisible(true);
             }
+        });
+    }
+
+    /**
+     * Punto de entrada principal del registro de usuario
+     * Este método inicia la aplicación Swing en el hilo de eventos de Swing y muestra la ventana de registro de usuario en la interfaz de usuario.
+     */
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            RegistroUsuarioFrame registroUsuarioFrame = new RegistroUsuarioFrame();
+            registroUsuarioFrame.mostrarVentana();
         });
     }
 
