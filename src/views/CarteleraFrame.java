@@ -144,5 +144,15 @@ public class CarteleraFrame extends JFrame {
         //Añadimos el carrusel de imágenes al panel de contenido de la ventana principal
         addImageCarousel(contentPanel, ventana);
 
+        //Creamos un panel para lograr espacio
+        JPanel spacingPanel1 = new JPanel();
+        spacingPanel1.setBackground(Color.DARK_GRAY);
+        spacingPanel1.setPreferredSize(new Dimension(contentPanel.getWidth(), 50));
+
+        //Creamos un panel de espaciado de botones
+        JPanel buttonSpacingPanel = new JPanel();
+        buttonSpacingPanel.setBackground(Color.DARK_GRAY);
+        buttonSpacingPanel.setPreferredSize(new Dimension(contentPanel.getWidth(), 200));
+
     }
 }
