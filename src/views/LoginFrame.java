@@ -1,6 +1,7 @@
 package views;
 
 import javax.swing.*;
+import javax.swing.plaf.FontUIResource;
 import java.awt.*;
 
 public class LoginFrame extends JFrame {
@@ -19,7 +20,11 @@ public class LoginFrame extends JFrame {
         getContentPane().setBackground(Color.DARK_GRAY);//color de fondo
         setLayout(new BorderLayout());
 
+        //Carga de la fuente Montserrat-Medium
+        Font montserratMedium = loadFont("../resources/Montserrat-Medium.ttf");
 
+        //Se establece la fuente para el proyecto
+        setUIFont(new FontUIResource(montserratMedium));
     }
 
 }
