@@ -130,5 +130,12 @@ public class CarteleraFrame extends JFrame {
 
         headerPanel.add(headerLabel);
 
+        //Creamos un panel que actúa de contenedor principal para organizar los componentes
+        JPanel contentPanel = new JPanel(new BorderLayout());
+        contentPanel.setBackground(Color.DARK_GRAY);
+        contentPanel.add(headerPanel, BorderLayout.NORTH);
+        contentPanel.add(new JLabel(lateralIcon), BorderLayout.WEST);
+        contentPanel.add(new JLabel(lateralIcon), BorderLayout.EAST);
+
     }
 }
