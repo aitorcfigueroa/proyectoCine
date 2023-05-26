@@ -5,6 +5,10 @@ import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.FontUIResource;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class LoginFrame extends JFrame {
     private JPanel headerPanel;
@@ -129,6 +133,94 @@ public class LoginFrame extends JFrame {
         setSize(1600, 900);
         setLocationRelativeTo(null); //Centrar la ventana en la pantalla
 
+    }
+
+    private JMenuBar createMenuBar() {
+        JMenuBar menuBar = new JMenuBar();
+
+        //Creamos el panel izquierdo para mantener los elementos que queremos alineados a la izquierda en la barra de menú
+        panelIzquierdo = new JPanel();
+        panelIzquierdo.setLayout(new FlowLayout(FlowLayout.LEFT));
+        JLabel labelInicio = new JLabel("Inicio");
+        labelInicio.setFont(panelIzquierdo.getFont());
+        labelInicio.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        panelIzquierdo.add(labelInicio);
+        JLabel labelCartelera = new JLabel("Cartelera");
+        labelCartelera.setFont(panelIzquierdo.getFont());
+        labelCartelera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        panelIzquierdo.add(labelCartelera);
+
+
+        labelInicio.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                mostrarVentanaInicio();
+            }
+        });
+        // Crear el panel derecho para los elementos alineados a la derecha
+        panelDerecho = new JPanel();
+        panelDerecho.setLayout(new FlowLayout(FlowLayout.RIGHT));
+        JLabel labelComprarEntradas = new JLabel("Comprar entradas");
+        labelComprarEntradas.setFont(panelDerecho.getFont());
+        labelComprarEntradas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        panelDerecho.add(labelComprarEntradas);
+        // Botón de Cartelera
+        labelCartelera.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                abrirCarteleraFrame();
+            }
+        });
+        JLabel labelIniciarSesion = new JLabel("Iniciar sesión");
+        labelIniciarSesion.setFont(panelDerecho.getFont());
+        labelIniciarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        panelDerecho.add(labelIniciarSesion);
+
+        //Creamos el menú desplegable de "Iniciar sesión"
+        JPopupMenu menuDesplegable = new JPopupMenu();
+        JMenuItem opcionLogin = new JMenuItem("Login");
+        JMenuItem opcionRegistro = new JMenuItem("Regístrate");
+        menuDesplegable.add(opcionLogin);
+        menuDesplegable.add(opcionRegistro);
+
+        opcionLogin.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LoginFrame loginFrame = new LoginFrame();
+                loginFrame.setVisible(true);
+            }
+        });
+
+        opcionRegistro.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RegistroUsuarioFrame registroUsuarioFrame = new RegistroUsuarioFrame();
+                registroUsuarioFrame.mostrarVentana();
+            }
+        });
+
+        labelIniciarSesion.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                menuDesplegable.show(labelIniciarSesion, 0, labelIniciarSesion.getHeight());
+            }
+        });
+
+        //ActionListener al labelComprarEntradas
+        labelComprarEntradas.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                abrirVentanaSesiones();
+            }
+        });
+
+
+        //Añadimos los paneles a la barra de menú
+        menuBar.add(panelIzquierdo);
+        menuBar.add(Box.createHorizontalGlue());
+        menuBar.add(panelDerecho);
+
+        return menuBar;
     }
 
 }
