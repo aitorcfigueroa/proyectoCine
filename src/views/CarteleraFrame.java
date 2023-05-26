@@ -3,6 +3,8 @@ package views;
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -68,5 +70,34 @@ public class CarteleraFrame extends JFrame {
         labelIniciarSesion.setFont(montserratMedium);
         panelDerecho.add(labelIniciarSesion);
 
+        //Creamos el menú desplegable de "Iniciar sesión"
+        JPopupMenu menuDesplegable = new JPopupMenu();
+        JMenuItem opcionLogin = new JMenuItem("Login");
+        JMenuItem opcionRegistro = new JMenuItem("Regístrate");
+        menuDesplegable.add(opcionLogin);
+        menuDesplegable.add(opcionRegistro);
+
+        opcionLogin.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LoginFrame loginFrame = new LoginFrame();
+                loginFrame.setVisible(true);
+            }
+        });
+
+        opcionRegistro.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RegistroUsuarioFrame registroUsuarioFrame = new RegistroUsuarioFrame();
+                registroUsuarioFrame.mostrarVentana();
+            }
+        });
+
+        labelIniciarSesion.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                menuDesplegable.show(labelIniciarSesion, 0, labelIniciarSesion.getHeight());
+            }
+        });
     }
 }
