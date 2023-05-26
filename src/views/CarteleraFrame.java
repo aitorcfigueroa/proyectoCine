@@ -311,4 +311,51 @@ public class CarteleraFrame extends JFrame {
         });
         timer.start();
     }
+    /**
+     * Actualizamos la imagen de la etiqueta de imagen con la imagen actual del carrusel.
+     * @param imageLabel La etiqueta de la imagen donde se mostrará la imagen.
+     * @param ventana La ventana principal de Cartelera.
+     */
+    private static void updateImage(JLabel imageLabel, JFrame ventana) {
+        //Obtenemos la ruta de la imagen actual
+        String imagePath = IMAGE_PATHS[currentIndex];
+
+        try {
+            BufferedImage originalImage = ImageIO.read(new File(imagePath)); //Se lee la imagen original desde el archivo
+
+            //Obtenemos las dimensiones de la ventana principal
+            int windowWidth = ventana.getWidth();
+            int windowHeight = ventana.getHeight();
+
+            //Porcentaje máximo de ancho y alto de la imagen en relación a la ventana
+            double maxWidthPercentage = 0.5;
+            double maxHeightPercentage = 0.5;
+
+            //Calculamos el ancho y alto máximo de la imagen
+            int maxImageWidth = (int) (windowWidth * maxWidthPercentage);
+            int maxImageHeight = (int) (windowHeight * maxHeightPercentage);
+
+            //Calculamos el aspect ratio original de la imagen
+            double originalAspectRatio = (double) originalImage.getWidth() / originalImage.getHeight();
+            int resizedWidth = maxImageWidth;
+            int resizedHeight = maxImageHeight;
+
+            //Calculamos el aspect ratio de la imagen redimensionada
+            double resizedAspectRatio = (double) resizedWidth / resizedHeight;
+
+            //Detallamos el ancho y alto de la imagen según el aspect ratio
+            if (originalAspectRatio > resizedAspectRatio) {
+                resizedHeight = (int) (resizedWidth / originalAspectRatio);
+            } else {
+                resizedWidth = (int) (resizedHeight * originalAspectRatio);
+            }
+
+            //Redimensioón de la imagen al tamaño adecuado
+            Image resizedImage = originalImage.getScaledInstance(resizedWidth, resizedHeight, Image.SCALE_SMOOTH);
+
+            imageLabel.setIcon(new ImageIcon(resizedImage));//Se establece la imagen redimensionada en la etiqueta de imagen
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 }
