@@ -114,6 +114,7 @@ public class CarteleraFrame extends JFrame {
         //Asignamos la barra de menú a la ventana
         ventana.setJMenuBar(menuBar);
 
-
+        //Carga imagen para laterales
+        ImageIcon lateralIcon = new ImageIcon("../resources/lateral2.png");
     }
 }
