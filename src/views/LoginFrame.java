@@ -222,5 +222,41 @@ public class LoginFrame extends JFrame {
 
         return menuBar;
     }
+    private JPanel createFormularioPanel() {
+        JPanel formularioPanel = new JPanel(new GridBagLayout());
+        formularioPanel.setOpaque(false);
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.insets = new Insets(5, 5, 40, 5); // Márgenes internos
 
+        //componentes del formulario
+        JLabel correoLabel = new JLabel("Correo electrónico:");
+        correoLabel.setForeground(Color.WHITE);
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        formularioPanel.add(correoLabel, gbc);
+
+        correoTextField = new JTextField(20);
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        formularioPanel.add(correoTextField, gbc);
+
+        JLabel contrasenaLabel = new JLabel("Contraseña:");
+        contrasenaLabel.setForeground(Color.WHITE);
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        formularioPanel.add(contrasenaLabel, gbc);
+
+        contrasenaPasswordField = new JPasswordField(20);
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        formularioPanel.add(contrasenaPasswordField, gbc);
+
+        iniciarSesionButton = new JButton("Iniciar sesión");
+        gbc.gridx = 1;
+        gbc.gridy = 2;
+        formularioPanel.add(iniciarSesionButton, gbc);
+
+        return formularioPanel;
+    }
 }
