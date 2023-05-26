@@ -163,5 +163,15 @@ public class CarteleraFrame extends JFrame {
 
         footerPanel.add(footerLabel);
 
+        //Agregamos los componentes anteriores al BorderLayout de la ventana
+        ventana.add(contentPanel, BorderLayout.CENTER);
+        ventana.add(spacingPanel1, BorderLayout.SOUTH);
+        ventana.add(buttonSpacingPanel, BorderLayout.SOUTH);
+        ventana.add(footerPanel, BorderLayout.PAGE_END);
+
+        //tamaño de la ventana
+        ventana.setSize(1600, 900);
+        ventana.setVisible(true); //visibilidad de la ventana
+
     }
 }
