@@ -154,5 +154,14 @@ public class CarteleraFrame extends JFrame {
         buttonSpacingPanel.setBackground(Color.DARK_GRAY);
         buttonSpacingPanel.setPreferredSize(new Dimension(contentPanel.getWidth(), 200));
 
+        //footer
+        JPanel footerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        footerPanel.setBackground(Color.GRAY);
+
+        JLabel footerLabel = new JLabel("Aitor Couñago - Ángela Serantes © 2023 ");
+        footerLabel.setForeground(Color.WHITE);
+
+        footerPanel.add(footerLabel);
+
     }
 }
