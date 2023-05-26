@@ -1,5 +1,6 @@
 package views;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import java.awt.*;
@@ -7,6 +8,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class CarteleraFrame extends JFrame {
 
@@ -136,6 +140,9 @@ public class CarteleraFrame extends JFrame {
         contentPanel.add(headerPanel, BorderLayout.NORTH);
         contentPanel.add(new JLabel(lateralIcon), BorderLayout.WEST);
         contentPanel.add(new JLabel(lateralIcon), BorderLayout.EAST);
+
+        //Añadimos el carrusel de imágenes al panel de contenido de la ventana principal
+        addImageCarousel(contentPanel, ventana);
 
     }
 }
