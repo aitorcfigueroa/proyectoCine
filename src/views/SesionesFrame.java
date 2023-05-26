@@ -3,6 +3,8 @@ package views;
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
 import java.io.File;
@@ -33,11 +35,11 @@ public class SesionesFrame extends JFrame {
         panelIzquierdo.add(labelInicio);
         labelInicio.setCursor(new Cursor(Cursor.HAND_CURSOR)); //Cambiar el diseño del cursor
 
-        //Agregamos ActionListener a Inicio
+        // Agregar ActionListener al labelInicio
         labelInicio.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                //Abrir la ventana Inicio al hacer click en "Inicio"
+                // Abrir la ventana Inicio al hacer clic en "Inicio"
                 abrirVentanaInicio();
                 dispose(); // Cerrar la ventana actual
             }
@@ -48,6 +50,14 @@ public class SesionesFrame extends JFrame {
         labelCartelera.setFont(montserratMedium);
         panelIzquierdo.add(labelCartelera);
         labelCartelera.setCursor(new Cursor(Cursor.HAND_CURSOR)); //Cambiar el diseño del cursor
+
+        //Botón de Cartelera-MouseListener
+        labelCartelera.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                abrirCarteleraFrame();
+            }
+        });
 
         //Creamos el panel derecho para mantener los elementos que queremos alineados a la derecha en la barra de menú
         JPanel panelDerecho = new JPanel();
@@ -61,6 +71,36 @@ public class SesionesFrame extends JFrame {
         labelIniciarSesion.setFont(montserratMedium);
         panelDerecho.add(labelIniciarSesion);
         labelIniciarSesion.setCursor(new Cursor(Cursor.HAND_CURSOR)); //Cambiar el diseño del cursor
+
+        // Crear el menú desplegable de "Iniciar sesión"
+        JPopupMenu menuDesplegable = new JPopupMenu();
+        JMenuItem opcionLogin = new JMenuItem("Login");
+        JMenuItem opcionRegistro = new JMenuItem("Regístrate");
+        menuDesplegable.add(opcionLogin);
+        menuDesplegable.add(opcionRegistro);
+
+        opcionLogin.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LoginFrame loginFrame = new LoginFrame();
+                loginFrame.setVisible(true);
+            }
+        });
+
+        opcionRegistro.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RegistroUsuarioFrame registroUsuarioFrame = new RegistroUsuarioFrame();
+                registroUsuarioFrame.mostrarVentana();
+            }
+        });
+
+        labelIniciarSesion.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                menuDesplegable.show(labelIniciarSesion, 0, labelIniciarSesion.getHeight());
+            }
+        });
 
         //Añadimos el componente "panelIzquierdo" a la barra de menú
         menuBar.add(panelIzquierdo);
@@ -616,16 +656,19 @@ public class SesionesFrame extends JFrame {
         UIManager.put("Tree.font", font);
     }
 
-    /**
-     * Abre y muestra la ventana "Inicio" en el hilo de eventos de Swing.
-     */
     private static void abrirVentanaInicio() {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                Inicio.main(null); //Llama al método main de la clase "Inicio"
+                Inicio.main(null);
             }
         });
     }
+
+    private static void abrirCarteleraFrame() {
+        CarteleraFrame carteleraFrame = new CarteleraFrame();
+        carteleraFrame.mostrarVentana();
+    }
+
 
     /**
      * Punto de entrada para la aplicación.
