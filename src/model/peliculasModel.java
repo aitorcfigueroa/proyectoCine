@@ -37,10 +37,11 @@ public class peliculas {
                 int edad = resultado.getInt("Edad");
                 String generos = resultado.getString("genero");
                 String sinopsis = resultado.getString("sinopsis");
+                String cartel = resultado.getString("cartel");
 
                 ArrayList<String> genero = new ArrayList<>(Arrays.asList(generos.split(",")));
 
-                nuevaPelicula = new Pelicula(idPelicula, titulo, director, año, duracion, edad, genero, sinopsis);
+                nuevaPelicula = new Pelicula(idPelicula, titulo, director, año, duracion, edad, genero, sinopsis, cartel);
             }
             resultado.close();
         } catch (SQLException e) {
