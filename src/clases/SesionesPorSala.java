@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class SesionesPorSala {
     int sala;
     Pelicula pelicula;
-    ArrayList<Sesion> sesiones;
+    ArrayList<Sesion> sesiones = new ArrayList<>();
 
     public SesionesPorSala(int sala, Pelicula pelicula, Sesion sesiones) {
         this.sala = sala;
