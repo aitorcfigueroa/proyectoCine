@@ -17,17 +17,28 @@ public class sesionesController {
     public static ArrayList<SesionesPorSala> sesiones(String cine, LocalDate fecha) {
         if (fecha == null) {
             fecha = LocalDate.now();
-        } else {
-            fecha = LocalDate.parse("2023-05-14");
         }
 
         ArrayList<Sesion> listaSesiones = getListaSesiones(cine, fecha);
-        ArrayList<SesionesPorSala> sesionesPorSala = null;
+        ArrayList<SesionesPorSala> sesionesPorSala = new ArrayList<>();
+        assert listaSesiones != null;
         for (Sesion sesion: listaSesiones) {
-            for (SesionesPorSala sesionPorSala: sesionesPorSala) {
-                if (sesionPorSala.getSala() == sesion.getIdSala()) {
-                    sesionPorSala.setSesiones(sesion);
-                } else {
+            if (sesionesPorSala.size() == 0) {
+                sesionesPorSala.add(new SesionesPorSala(sesion.getIdSala(), sesion.getPelicula(), sesion));
+            } else {
+                boolean estaPresente = true;
+
+                for (SesionesPorSala sesionPorSala : sesionesPorSala) {
+                    if (sesionPorSala.getSala() == sesion.getIdSala()) {
+                        sesionPorSala.setSesiones(sesion);
+                        estaPresente = true;
+                        break;
+                    } else {
+                        estaPresente = false;
+                    }
+                }
+
+                if (!estaPresente) {
                     sesionesPorSala.add(new SesionesPorSala(sesion.getIdSala(), sesion.getPelicula(), sesion));
                 }
             }
