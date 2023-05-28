@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 import static model.dbconnection.closeConection;
 
-public class peliculas {
+public class peliculasModel {
     /**
      * Método para recuperar una película.
      * @param id el id de la película
