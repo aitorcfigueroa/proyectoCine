@@ -18,10 +18,10 @@ import java.util.Map;
 
 import static model.dbconnection.closeConection;
 import static model.cines.getCine;
-import static model.peliculas.getPelicula;
+import static model.peliculasModel.getPelicula;
 import static model.salas.getListaSalas;
 
-public class sesiones {
+public class sesionesModel {
     public static void main(String[] args) {
         ArrayList<Sesion> sesionesCine = getListaSesiones("Castelao", LocalDate.parse("2023-05-14"));
         System.out.println(sesionesCine);
