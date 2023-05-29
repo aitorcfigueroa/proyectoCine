@@ -21,6 +21,7 @@ public class Pelicula {
         this.edad = edad;
     }
 
+
     public Pelicula(int idPelicula, String titulo, String director, int año, int duracion, int edad, ArrayList<String> genero, String sinopsis, String cartel) {
         this.idPelicula = idPelicula;
         this.titulo = titulo;
