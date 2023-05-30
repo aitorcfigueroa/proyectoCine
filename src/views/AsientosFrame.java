@@ -1,6 +1,7 @@
 package views;
 
 import javax.swing.*;
+import javax.swing.plaf.FontUIResource;
 import java.awt.*;
 
 public class AsientosFrame extends JFrame {
@@ -17,5 +18,10 @@ public class AsientosFrame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //acción para cerrar la ventana
         getContentPane().setBackground(Color.DARK_GRAY); //color de fondo
 
+        //Carga de la fuente Montserrat-Medium
+        Font montserratMedium = loadFont(".\\resources\\Montserrat-Medium.ttf");
+
+        //Se establece la fuente para el proyecto
+        setUIFont(new FontUIResource(montserratMedium));
     }
 }
