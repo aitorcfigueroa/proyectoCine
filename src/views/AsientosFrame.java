@@ -119,6 +119,29 @@ public class AsientosFrame extends JFrame {
             }
         }
 
+        contentPanel.add(asientosPanel, BorderLayout.CENTER); //añadimos los asientos al contenedor principal en el centro
+
+        JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));//nuevo panel para recoger botones de comprar y cancelar
+        buttonsPanel.setBackground(Color.decode("#4D9694")); //color de fondo
+
+        JButton comprarButton = new JButton("Comprar"); //botón de comprar
+        comprarButton.setFont(montserratMedium); //fuente
+        comprarButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR)); //cursor mano
+        buttonsPanel.add(comprarButton); //añadir botón al panel de buttons
+
+        JButton cancelarButton = new JButton("Cancelar");
+        cancelarButton.setFont(montserratMedium); //fuente
+        cancelarButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR)); //cursor mano
+        buttonsPanel.add(cancelarButton); //añadir botón al panel de buttons
+
+        //ActionListener para el botón cancelar
+        //Crea una instancia de la clase inicio y muestra su ventana
+        cancelarButton.addActionListener(e -> {
+            Inicio inicioFrame = new Inicio();
+            inicioFrame.setVisible(true);
+            dispose(); //cierra la ventana actual
+        });
+
 
     }
 }
