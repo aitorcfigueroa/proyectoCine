@@ -57,6 +57,68 @@ public class AsientosFrame extends JFrame {
         GridBagConstraints gbc = new GridBagConstraints(); //configuramos la disposición
         gbc.insets = new Insets(5, 5, 5, 5); //márgenes internos
 
+        /**
+         * Creamos y configuramos los botones de los asientos en el panel de asientos.
+         * Los botones representan los asientos y su estado de ocupación y selección.
+         */
+
+        for (int fila = 0; fila < 10; fila++) {
+            for (int columna = 0; columna < 10; columna++) {
+                JButton botonAsiento = new JButton("F:" + (fila + 1) + ", A:" + (columna + 1));
+                botonAsiento.setFont(montserratMedium);
+                botonAsiento.setBackground(Color.WHITE);
+                botonAsiento.setPreferredSize(new Dimension(120, 120)); //tamaño del botón
+
+                //Comprobamos si el asiento está ocupado
+                if (ocupados[fila][columna]) {
+                    botonAsiento.setEnabled(false);
+                    botonAsiento.setBackground(Color.RED);
+                } else {
+                    botonAsiento.addActionListener(e -> {
+                        JButton asientoSeleccionado = (JButton) e.getSource();
+                        int filaSeleccionada = -1;
+                        int columnaSeleccionada = -1;
+
+                        //Buscamos el botón seleccionado en la matriz de asientos
+                        for (int i = 0; i < asientos.length; i++) {
+                            for (int j = 0; j < asientos[i].length; j++) {
+                                if (asientos[i][j] == asientoSeleccionado) {
+                                    filaSeleccionada = i;
+                                    columnaSeleccionada = j;
+                                    break;
+                                }
+                            }
+                            if (filaSeleccionada != -1 && columnaSeleccionada != -1) {
+                                break;
+                            }
+                        }
+
+                        // Verificar si el asiento está ocupado
+                        if (ocupados[filaSeleccionada][columnaSeleccionada]) {
+                            return;
+                        }
+
+                        //Cambiamos el estado del asiento seleccionado
+                        seleccionados[filaSeleccionada][columnaSeleccionada] = !seleccionados[filaSeleccionada][columnaSeleccionada];
+
+                        //Cambiamos el color del botón según su estado actual
+                        if (seleccionados[filaSeleccionada][columnaSeleccionada]) {
+                            //Asiento seleccionado = color amarillo
+                            asientoSeleccionado.setBackground(Color.YELLOW);
+                        } else {
+                            //Asiento deseleccionado = color blanco
+                            asientoSeleccionado.setBackground(Color.WHITE);
+                        }
+                    });
+                }
+
+                asientos[fila][columna] = botonAsiento; //se posiciona el boton de asiento creado en la posición de la matriz
+                gbc.gridx = columna; //columna en la que se coloca el botón
+                gbc.gridy = fila; //fila en la que se coloca el botón
+                asientosPanel.add(botonAsiento, gbc); //añadimos los botones al panel de asientos
+            }
+        }
+
 
     }
 }
