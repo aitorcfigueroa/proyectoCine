@@ -60,7 +60,7 @@ public class Inicio extends JFrame{
         labelCartelera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         labelComprarEntradas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         labelIniciarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-
+       
         //Agregamos los paneles con las posiciones a la barra de menú
         menuBar.add(panelIzquierdo);
         menuBar.add(Box.createHorizontalGlue());
@@ -119,7 +119,6 @@ public class Inicio extends JFrame{
         //Agregamos el JLabel al JPanel del footer
         footerPanel.add(footerLabel);
 
-
         //Agregamos los componentes anteriores al BorderLayout de la ventana
         add(lateralLabelLeft, BorderLayout.WEST);
         add(lateralLabelRight, BorderLayout.EAST);
@@ -134,6 +133,7 @@ public class Inicio extends JFrame{
                 // Ajustar la posición del GIF al cambiar el tamaño de la ventana
                 int gifX = (getWidth() - gifIcon.getIconWidth()) / 2;
                 int gifY = (getHeight() - gifIcon.getIconHeight()) / 2;
+
                 gifLabel.setBounds(gifX, gifY, gifIcon.getIconWidth(), gifIcon.getIconHeight());
             }
         });
@@ -207,6 +207,7 @@ public class Inicio extends JFrame{
         UIManager.put("ToolTip.font", font);
         UIManager.put("Tree.font", font);
     }
+
     /**
      * Abre la ventana de SesionesFrame para mostrar las sesiones disponibles.
      * Se ejecuta en el hilo de despacho de eventos de Swing para garantizar la

@@ -4,6 +4,7 @@ import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.FontUIResource;
 import java.awt.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -50,10 +51,10 @@ public class RegistroUsuarioFrame  extends JFrame{
         //Añadimos el JLabel al JPanel del encabezado
         headerPanel.add(headerLabel);
 
-
         //Creamos la barra de menú
         JMenuBar menuBar = createMenuBar();
         setJMenuBar(menuBar);
+
 
         //Creamos un JPanel para el footer
         footerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -141,6 +142,7 @@ public class RegistroUsuarioFrame  extends JFrame{
         panelIzquierdo.setLayout(new FlowLayout(FlowLayout.LEFT));
         JLabel labelInicio = new JLabel("Inicio");
         labelInicio.setFont(panelIzquierdo.getFont());
+
         labelInicio.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         panelIzquierdo.add(labelInicio);
         JLabel labelCartelera = new JLabel("Cartelera");
@@ -225,6 +227,7 @@ public class RegistroUsuarioFrame  extends JFrame{
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.insets = new Insets(5, 5, 40, 5); // Márgenes internos
 
+
         // Crear componentes del formulario
         JLabel nombreLabel = new JLabel("Nombre:");
         nombreLabel.setForeground(Color.WHITE);
@@ -235,17 +238,20 @@ public class RegistroUsuarioFrame  extends JFrame{
         nombreTextField = new JTextField(20);
         gbc.gridx = 1;
         gbc.gridy = 0;
+
         formularioPanel.add(nombreTextField, gbc);
 
         JLabel correoLabel = new JLabel("Correo electrónico:");
         correoLabel.setForeground(Color.WHITE);
         gbc.gridx = 0;
         gbc.gridy = 1;
+
         formularioPanel.add(correoLabel, gbc);
 
         correoTextField = new JTextField(20);
         gbc.gridx = 1;
         gbc.gridy = 1;
+
         formularioPanel.add(correoTextField, gbc);
 
         JLabel contrasenaLabel = new JLabel("Contraseña:");
@@ -311,6 +317,7 @@ public class RegistroUsuarioFrame  extends JFrame{
         UIManager.put("ToolTip.font", font);
         UIManager.put("Tree.font", font);
     }
+
     /**
      * Muestra la ventana de inicio
      */
@@ -363,5 +370,4 @@ public class RegistroUsuarioFrame  extends JFrame{
             registroUsuarioFrame.mostrarVentana();
         });
     }
-
 }
