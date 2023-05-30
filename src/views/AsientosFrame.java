@@ -38,5 +38,12 @@ public class AsientosFrame extends JFrame {
         headerLabel.setForeground(Color.WHITE); //color de texto
 
         headerPanel.add(headerLabel); //Añadimos la etiqueta del encabezado a su panel
+
+        JPanel contentPanel = new JPanel(new BorderLayout()); //Creamos un panel contenedor
+        contentPanel.setBackground(Color.DARK_GRAY); //color de fondo
+        contentPanel.add(headerPanel, BorderLayout.NORTH); //añdimos el headerPanel al contentPanel al norte
+        contentPanel.add(new JLabel(lateralIcon), BorderLayout.WEST); //añadimos imagen en la posición oeste
+        contentPanel.add(new JLabel(lateralIcon), BorderLayout.EAST); //añadimos imagen en la posición este
+
     }
 }
