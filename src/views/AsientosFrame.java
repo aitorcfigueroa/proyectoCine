@@ -261,4 +261,12 @@ public class AsientosFrame extends JFrame {
         UIManager.put("Tree.font", font);
     }
 
+    //Punto de entrada
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            //Crear y mostrar la ventana de AsientosFrame
+            AsientosFrame asientosFrame = new AsientosFrame();
+            asientosFrame.setVisible(true);
+        });
+    }
 }
