@@ -3,6 +3,12 @@ package views;
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class AsientosFrame extends JFrame {
 
@@ -162,5 +168,51 @@ public class AsientosFrame extends JFrame {
 
         setSize(1000, 800); //tamaño ventana
         setVisible(true); //visibilidad ventana
+
+        /**
+         * ActionListener para el botón "Comprar".
+         * Es el encargado de controlar la acción cuando se hace click en el botón "Comprar".
+         * Permite al usuario/a seleccionar la ubicación deseada y el nombre del archivo y guarda los asientos seleccionados en un archivo de texto.
+         * Muestra mensajes de confirmación o error según el resultado del proceso de guardado.
+         */
+        comprarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Crea un cuadro de diálogo para seleccionar la ubicación y el nombre del archivo
+                JFileChooser fileChooser = new JFileChooser();
+                int seleccion = fileChooser.showSaveDialog(AsientosFrame.this);
+
+                if (seleccion == JFileChooser.APPROVE_OPTION) {
+                    File archivoDestino = fileChooser.getSelectedFile();
+                    String filePath = archivoDestino.getAbsolutePath();
+
+                    //Añadimos extensión .txt si no está presente
+                    if (!filePath.toLowerCase().endsWith(".txt")) {
+                        archivoDestino = new File(filePath + ".txt");
+                    }
+
+                    try {
+                        archivoDestino.createNewFile();
+                        //Se escriben los asientos seleccionados en el archivo
+                        BufferedWriter writer = new BufferedWriter(new FileWriter(archivoDestino));
+                        for (int fila = 0; fila < 10; fila++) {
+                            for (int columna = 0; columna < 10; columna++) {
+                                if (seleccionados[fila][columna]) {
+                                    String asientoSeleccionado = "Fila: " + (fila + 1) + ", Asiento: " + (columna + 1);
+                                    writer.write(asientoSeleccionado);
+                                    writer.newLine();
+                                }
+                            }
+                        }
+
+                        writer.close();
+                        JOptionPane.showMessageDialog(AsientosFrame.this, "Asientos seleccionados guardados correctamente en el archivo.");
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                        JOptionPane.showMessageDialog(AsientosFrame.this, "Error al guardar los asientos seleccionados en el archivo.", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            }
+        });
     }
 }
