@@ -23,5 +23,20 @@ public class AsientosFrame extends JFrame {
 
         //Se establece la fuente para el proyecto
         setUIFont(new FontUIResource(montserratMedium));
+
+        //Cargamos la imagen que se va a emplear en los laterales
+        ImageIcon lateralIcon = new ImageIcon(".\\resources\\lateral2.png");
+
+        //Encabezado
+
+        JPanel headerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER)); //Creamos el JPanel para el encabezado
+
+        JLabel headerLabel = new JLabel("Selección de Asientos"); //texto encabezado
+        Color headerColor = Color.decode("#4D9694");//color encabezado
+        headerPanel.setBackground(headerColor); //establecemos color de fondo
+        headerLabel.setFont(montserratMedium.deriveFont(Font.PLAIN, 18)); //tamaño de la fuente
+        headerLabel.setForeground(Color.WHITE); //color de texto
+
+        headerPanel.add(headerLabel); //Añadimos la etiqueta del encabezado a su panel
     }
 }
