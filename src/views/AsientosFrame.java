@@ -142,6 +142,25 @@ public class AsientosFrame extends JFrame {
             dispose(); //cierra la ventana actual
         });
 
+        //footer
+        //Creamos el JPanel para el footer
+        JPanel footerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        footerPanel.setBackground(Color.GRAY); //color de fondo
 
+        //Creamos el JLabel con el texto del footer
+        JLabel footerLabel = new JLabel("Aitor Couñago - Ángela Serantes © 2023 ");
+        footerLabel.setForeground(Color.WHITE);
+        //Añadimos el JLabel al JPanel del footer
+        footerPanel.add(footerLabel);
+
+        contentPanel.add(buttonsPanel, BorderLayout.SOUTH); //Añadimos el panel de botones al contentPanel
+
+        setLayout(new BorderLayout()); //diseño de la ventana
+
+        add(contentPanel, BorderLayout.CENTER); //panel contenedor en el centro
+        add(footerPanel, BorderLayout.SOUTH); //panel footer al sur
+
+        setSize(1000, 800); //tamaño ventana
+        setVisible(true); //visibilidad ventana
     }
 }
