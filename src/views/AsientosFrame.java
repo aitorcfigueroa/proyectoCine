@@ -45,5 +45,18 @@ public class AsientosFrame extends JFrame {
         contentPanel.add(new JLabel(lateralIcon), BorderLayout.WEST); //añadimos imagen en la posición oeste
         contentPanel.add(new JLabel(lateralIcon), BorderLayout.EAST); //añadimos imagen en la posición este
 
+       //Panel para los asientos
+        JPanel asientosPanel = new JPanel(new GridBagLayout());
+        asientosPanel.setBackground(Color.DARK_GRAY); //color de fondo
+
+        //tamaño asientos, ocupados y seleccionados
+        asientos = new JButton[10][10];
+        ocupados = new boolean[10][10];
+        seleccionados = new boolean[10][10];
+
+        GridBagConstraints gbc = new GridBagConstraints(); //configuramos la disposición
+        gbc.insets = new Insets(5, 5, 5, 5); //márgenes internos
+
+
     }
 }
