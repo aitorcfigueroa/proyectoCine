@@ -16,12 +16,12 @@ public class CarteleraFrame extends JFrame {
 
     //Array que almacena las rutas de las imágenes
     private static final String[] IMAGE_PATHS = {
-            "../resources/peli1.png",
-            "../resources/peli2.png",
-            "../resources/peli3.png",
-            "../resources/peli4.png",
-            "../resources/peli5.png",
-            "../resources/peli6.png"
+            "./resources/peli1.jpg",
+            "./resources/peli2.jpg",
+            "./resources/peli3.jpg",
+            "./resources/peli4.jpg",
+            "./resources/peli5.jpg",
+            "./resources/peli6.jpg"
     };
 
     private static final int SLIDE_DELAY = 2400; //Tiempo para el cambio de dispositivas
@@ -39,7 +39,7 @@ public class CarteleraFrame extends JFrame {
         ventana.setLayout(new BorderLayout());
 
         //Carga de la fuente Montserrat-Medium
-        Font montserratMedium = loadFont("../resources/Montserrat-Medium.ttf");
+        Font montserratMedium = loadFont(".\\resources\\Montserrat-Medium.ttf");
 
         //Se establece la fuente para el proyecto
         setUIFont(new FontUIResource(montserratMedium));
@@ -104,6 +104,15 @@ public class CarteleraFrame extends JFrame {
             }
         });
 
+        // Agregar ActionListener al labelComprarEntradas
+        labelComprarEntradas.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // Abrir la ventana SesionesFrame al hacer clic en "Comprar entradas"
+                abrirVentanaSesiones();
+            }
+        });
+
         //Cursor de la mano para los botones de menú
         labelInicio.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         labelCartelera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -119,7 +128,7 @@ public class CarteleraFrame extends JFrame {
         ventana.setJMenuBar(menuBar);
 
         //Carga imagen para laterales
-        ImageIcon lateralIcon = new ImageIcon("../resources/lateral2.png");
+        ImageIcon lateralIcon = new ImageIcon("./resources/lateral2.png");
 
         //Añadimos enncabezado
 
