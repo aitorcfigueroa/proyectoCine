@@ -14,7 +14,7 @@ public class Inicio extends JFrame{
 
 
         //Carga de la fuente Montserrat-Medium
-        Font montserratMedium = loadFont("../resources/Montserrat-Medium.ttf");
+        Font montserratMedium = loadFont(".\\resources\\Montserrat-Medium.ttf");
 
         //Se establece la fuente para el proyecto
         setUIFont(new FontUIResource(montserratMedium));

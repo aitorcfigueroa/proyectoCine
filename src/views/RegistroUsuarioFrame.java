@@ -354,7 +354,12 @@ public class RegistroUsuarioFrame  extends JFrame{
     private static void abrirVentanaSesiones() {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                SesionesFrame sesionesFrame = new SesionesFrame();
+                SesionesFrame sesionesFrame = null;
+                try {
+                    sesionesFrame = new SesionesFrame();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
                 sesionesFrame.setVisible(true);
             }
         });
