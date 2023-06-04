@@ -24,7 +24,10 @@ import static model.salas.getListaSalas;
 public class sesionesModel {
     public static void main(String[] args) {
         Sesion sesionesCine = getSesion(1);
-        System.out.println(sesionesCine);
+        putSesion(1, sesionesCine.getButacas());
+        /*System.out.println(sesionesCine.get(0).getButacas().get("A"));
+        System.out.println(sesionesCine.get(0).getButacas().get("A").set(2, true));
+        System.out.println(sesionesCine.get(0).getButacas().get("A"));*/
     }
 
     /**
@@ -125,6 +128,7 @@ public class sesionesModel {
                 hora = LocalTime.parse(resultado.getString("hora"));
 
                 String sitios = resultado.getString("butacas");
+                System.out.println(sitios);
                 ObjectMapper objectMapper = new ObjectMapper();
 
                 butacas = objectMapper.readValue(sitios, Map.class);
@@ -143,5 +147,45 @@ public class sesionesModel {
         return newSesion;
     }
 
-    //TODO: Update butacas.
+    /**
+     * Modelo para actualizar las butacas de una sesión
+     * @param id identificador de la sesión
+     * @param butacas mapa con todas las butacas de la sesión actualizadas
+     * @return true si se actualizan correctamente o false si existe algún error al actualizarlas
+     */
+    public static Boolean putSesion(int id, Map<String, ArrayList<Boolean>> butacas) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        String cadenaButacas = null;
+
+        try {
+            cadenaButacas = objectMapper.writeValueAsString(butacas);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+
+        Connection conexion = dbconnection.conexion();
+        Statement consulta = null;
+        String texto_update = "update sesiones set butacas='" + cadenaButacas + "' where idSesion=" + id;
+        Integer resultado = null;
+
+        try {
+            assert conexion != null;
+            consulta = conexion.createStatement();
+            resultado = consulta.executeUpdate(texto_update);
+
+        } catch (SQLException e) {
+            System.out.println("Error a la hora de consultar la tabla");
+            System.out.println(e.getLocalizedMessage());
+        }
+
+        closeConection(conexion);
+
+        if (resultado == 1) {
+            System.out.println("Base de datos actualizada con éxito");
+            return true;
+        } else {
+            System.out.println("Error al actualizar la base de datos");
+            return false;
+        }
+    }
 }
