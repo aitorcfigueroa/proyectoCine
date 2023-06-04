@@ -5,8 +5,10 @@ import clases.SesionesPorSala;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import static model.sesionesModel.getListaSesiones;
-import static model.sesionesModel.getSesion;
+import java.util.Map;
+
+import static java.lang.Integer.parseInt;
+import static model.sesionesModel.*;
 
 public class sesionesController {
     /**
@@ -57,5 +59,30 @@ public class sesionesController {
         }
 
         return sesionesPorSala;
+    }
+
+    /**
+     * Controlador para guardar las butacas seleccionadas en la base de datos
+     * @param sesion Sesion en la que se van a realizar los cambios
+     * @param butacasSeleccionadas Butacas que ha seleccionado el usuario
+     * @return true si la operación se realiza con éxito o false en el caso de que exista algún error durante el proceso
+     */
+    public static Boolean updateSesionCtrl(Sesion sesion, ArrayList<String> butacasSeleccionadas) {
+        int idSesion = sesion.getIdSesion();
+        Map<String, ArrayList<Boolean>> butacas = sesion.getButacas();
+
+        for (String butaca: butacasSeleccionadas) {
+            String[] filaNum = butaca.split("");
+            String fila = filaNum[0];
+            int columna = parseInt(filaNum[1]);
+
+            ArrayList<Boolean> columnas = butacas.get(fila);
+            columnas.set(columna, true);
+            butacas.put(fila, columnas);
+        }
+
+        Boolean resultado = putSesion(idSesion, butacas);
+
+        return resultado;
     }
 }
