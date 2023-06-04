@@ -13,7 +13,7 @@ public class dbconnection {
     public static Connection conexion() {
         Dotenv dotenv = Dotenv.load();
         Connection conexion = null;
-        String url = "jdbc:mysql://localhost:3306/proyecto_cine";
+        String url = dotenv.get("DBURL");
         String usuario = dotenv.get("USER");
         String passwd = dotenv.get("PASS");
 
