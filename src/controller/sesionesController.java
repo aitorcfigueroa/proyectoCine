@@ -9,6 +9,11 @@ import static model.sesionesModel.getListaSesiones;
 import static model.sesionesModel.getSesion;
 
 public class sesionesController {
+    /**
+     * Método para recuperar una sesión
+     * @param id identificador de la sesión que se quiere recuperar
+     * @return una sesión
+     */
     public static Sesion sesionCtrl(int id) {
         Sesion nuevaSesion = getSesion(id);
 
