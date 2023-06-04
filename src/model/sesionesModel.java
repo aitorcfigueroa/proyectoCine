@@ -17,9 +17,9 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import static model.dbconnection.closeConection;
-import static model.cines.getCine;
+import static model.cinesModel.getCine;
 import static model.peliculasModel.getPelicula;
-import static model.salas.getListaSalas;
+import static model.salasModel.getListaSalas;
 
 public class sesionesModel {
     public static void main(String[] args) {
