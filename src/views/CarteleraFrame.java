@@ -11,18 +11,15 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+
+import static controller.peliculasController.cartelesCtrl;
 
 public class CarteleraFrame extends JFrame {
 
     //Array que almacena las rutas de las imágenes
-    private static final String[] IMAGE_PATHS = {
-            "./resources/peli1.jpg",
-            "./resources/peli2.jpg",
-            "./resources/peli3.jpg",
-            "./resources/peli4.jpg",
-            "./resources/peli5.jpg",
-            "./resources/peli6.jpg"
-    };
+    private static final ArrayList<String> carteles = cartelesCtrl();
 
     private static final int SLIDE_DELAY = 2400; //Tiempo para el cambio de dispositivas
 
@@ -281,7 +278,7 @@ public class CarteleraFrame extends JFrame {
         previousButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                currentIndex = (currentIndex - 1 + IMAGE_PATHS.length) % IMAGE_PATHS.length;
+                currentIndex = (currentIndex - 1 + carteles.size()) % carteles.size();
                 updateImage(imageLabel, ventana);
             }
         });
@@ -296,7 +293,7 @@ public class CarteleraFrame extends JFrame {
         nextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                currentIndex = (currentIndex + 1) % IMAGE_PATHS.length;
+                currentIndex = (currentIndex + 1) % carteles.size();
                 updateImage(imageLabel, ventana);
             }
         });
@@ -319,7 +316,7 @@ public class CarteleraFrame extends JFrame {
         timer = new Timer(SLIDE_DELAY, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                currentIndex = (currentIndex + 1) % IMAGE_PATHS.length;
+                currentIndex = (currentIndex + 1) % carteles.size();
                 updateImage(imageLabel, ventana);
             }
         });
@@ -332,10 +329,10 @@ public class CarteleraFrame extends JFrame {
      */
     private static void updateImage(JLabel imageLabel, JFrame ventana) {
         //Obtenemos la ruta de la imagen actual
-        String imagePath = IMAGE_PATHS[currentIndex];
+        String imagePath = carteles.get(currentIndex);
 
         try {
-            BufferedImage originalImage = ImageIO.read(new File(imagePath)); //Se lee la imagen original desde el archivo
+            BufferedImage originalImage = ImageIO.read(new URL(imagePath)); //Se lee la imagen original desde el archivo
 
             //Obtenemos las dimensiones de la ventana principal
             int windowWidth = ventana.getWidth();
