@@ -6,15 +6,22 @@ import clases.SesionesPorSala;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import static model.sesionesModel.getListaSesiones;
+import static model.sesionesModel.getSesion;
 
 public class sesionesController {
+    public static Sesion sesionCtrl(int id) {
+        Sesion nuevaSesion = getSesion(id);
+
+        return nuevaSesion;
+    }
+
     /**
      * Método para recuperar las sesiones de un día
      * @param cine nombre del cine
      * @param fecha día en el que se quiere buscar sesiones
      * @return ArrayList con la lista de sesiones para el día elegido
      */
-    public static ArrayList<SesionesPorSala> sesiones(String cine, LocalDate fecha) {
+    public static ArrayList<SesionesPorSala> sesionesCtrl(String cine, LocalDate fecha) {
         if (fecha == null) {
             fecha = LocalDate.now();
         }
