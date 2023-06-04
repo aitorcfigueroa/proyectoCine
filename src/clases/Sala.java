@@ -2,13 +2,13 @@ package clases;
 
 public class Sala {
     int idSala;
-    String nombre_sala;
+    String nombreSala;
     int filas;
     int columnas;
 
-    public Sala(int idSala, String nombre_sala, int filas, int columnas) {
+    public Sala(int idSala, String nombreSala, int filas, int columnas) {
         this.idSala = idSala;
-        this.nombre_sala = nombre_sala;
+        this.nombreSala = nombreSala;
         this.filas = filas;
         this.columnas = columnas;
     }
@@ -21,12 +21,12 @@ public class Sala {
         this.idSala = idSala;
     }
 
-    public String getNombre_sala() {
-        return nombre_sala;
+    public String getNombreSala() {
+        return nombreSala;
     }
 
-    public void setNombre_sala(String nombre_sala) {
-        this.nombre_sala = nombre_sala;
+    public void setNombreSala(String nombreSala) {
+        this.nombreSala = nombreSala;
     }
 
     public int getFilas() {
