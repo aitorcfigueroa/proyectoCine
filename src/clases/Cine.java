@@ -2,22 +2,22 @@ package clases;
 
 public class Cine {
     int idCine;
-    String nombre_cine;
+    String nombreCine;
     double precio;
 
-    public Cine(int idCine, String nombre_cine, double precio) {
+    public Cine(int idCine, String nombreCine, double precio) {
         this.idCine = idCine;
-        this.nombre_cine = nombre_cine;
+        this.nombreCine = nombreCine;
         this.precio = precio;
     }
 
-    public Cine(String nombre_cine, double precio) {
-        this.nombre_cine = nombre_cine;
+    public Cine(String nombreCine, double precio) {
+        this.nombreCine = nombreCine;
         this.precio = precio;
     }
 
-    public String getNombre_cine() {
-        return nombre_cine;
+    public String getNombreCine() {
+        return nombreCine;
     }
 
     public int getIdCine() {
@@ -28,8 +28,8 @@ public class Cine {
         this.idCine = idCine;
     }
 
-    public void setNombre_cine(String nombre_cine) {
-        this.nombre_cine = nombre_cine;
+    public void setNombreCine(String nombreCine) {
+        this.nombreCine = nombreCine;
     }
 
     public double getPrecio() {
