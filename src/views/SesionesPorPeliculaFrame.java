@@ -7,6 +7,8 @@ import clases.SesionesPorSala;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
@@ -48,11 +50,19 @@ public class SesionesPorPeliculaFrame extends JFrame {
             panelHorarios.setLayout(new FlowLayout(FlowLayout.CENTER));
             panelHorarios.setBorder(BorderFactory.createEmptyBorder(10,0,0,0));
 
+
             for (Sesion sesion: sesionPorSala.getSesiones()) {
                 String hora = sesion.getHora().toString();
                 JButton botonHora = new JButton(hora);
                 botonHora.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 panelHorarios.add(botonHora);
+                botonHora.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        AsientosFrame asientosFrame = new AsientosFrame(sesion);
+                        asientosFrame.setVisible(true);
+                    }
+                });
             }
 
             int edad = pelicula.getEdad();
@@ -83,6 +93,9 @@ public class SesionesPorPeliculaFrame extends JFrame {
                     panelPelicula.setToolTipText(datosPelicula);
                 }
             });
+
+
+
         }
 
         return peliculasPanel;

@@ -74,8 +74,7 @@ public class sesionesController {
         for (String butaca: butacasSeleccionadas) {
             String[] filaNum = butaca.split("");
             String fila = filaNum[0];
-            int columna = parseInt(filaNum[1]);
-
+            int columna = parseInt(filaNum[1]) -1;
             ArrayList<Boolean> columnas = butacas.get(fila);
             columnas.set(columna, true);
             butacas.put(fila, columnas);

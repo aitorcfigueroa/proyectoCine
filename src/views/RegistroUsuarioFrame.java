@@ -29,13 +29,13 @@ public class RegistroUsuarioFrame  extends JFrame{
         setLayout(new BorderLayout());
 
         //Cargamos la fuente Montserrat-Medium desde un archivo .ttf
-        Font montserratMedium = loadFont("../resources/Montserrat-Medium.ttf");
+        Font montserratMedium = loadFont(".\\resources\\Montserrat-Medium.ttf");
 
         //Establecemos la fuente Montserrat-Medium como la fuente predeterminada para el proyecto
         setUIFont(new FontUIResource(montserratMedium));
 
         //Añadimos la imagen lateral que vamos a usar en ambos laterales de la ventana
-        ImageIcon lateralIcon = new ImageIcon("../resources/lateral2.png");
+        ImageIcon lateralIcon = new ImageIcon(".\\resources\\lateral2.png");
         JLabel lateralLabelLeft = new JLabel(lateralIcon);
         JLabel lateralLabelRight = new JLabel(lateralIcon);
 

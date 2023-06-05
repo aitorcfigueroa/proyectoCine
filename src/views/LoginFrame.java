@@ -29,13 +29,13 @@ public class LoginFrame extends JFrame {
         setLayout(new BorderLayout());
 
         //Carga de la fuente Montserrat-Medium
-        Font montserratMedium = loadFont("../resources/Montserrat-Medium.ttf");
+        Font montserratMedium = loadFont(".\\resources\\Montserrat-Medium.ttf");
 
         //Se establece la fuente para el proyecto
         setUIFont(new FontUIResource(montserratMedium));
 
         //Cargamos las imágenes laterales
-        ImageIcon lateralIcon = new ImageIcon("../resources/lateral2.png");
+        ImageIcon lateralIcon = new ImageIcon(".\\resources\\lateral2.png");
         JLabel lateralLabelLeft = new JLabel(lateralIcon);
         JLabel lateralLabelRight = new JLabel(lateralIcon);
 
