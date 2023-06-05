@@ -11,6 +11,11 @@ import java.util.ArrayList;
 import static model.dbconnection.closeConection;
 
 public class salasModel {
+    public static void main(String[] args) {
+        Sala test = getSala(1);
+        System.out.println(test.getNombre_sala());
+    }
+
     /**
      * Método para consultar la lista de salas de un cine
      * @param idCine el id del cine a consultar
@@ -44,5 +49,43 @@ public class salasModel {
         }
         closeConection(conexion);
         return salas;
+    }
+
+    /**
+     * Modelo para recuperar una sala
+     * @param id identificador de la sala
+     * @return un objeto de tipo sala
+     */
+    public static Sala getSala(int id) {
+        Sala newSala = null;
+        Connection conexion = dbconnection.conexion();
+        Statement seleccion = null;
+        String texto_seleccion = "select * from salas where idSala=" + id;
+        ResultSet resultado = null;
+        int idSala;
+        String nombreSala;
+        int filas;
+        int columnas;
+
+        try {
+            assert conexion != null;
+            seleccion = conexion.createStatement();
+            resultado = seleccion.executeQuery(texto_seleccion);
+            while(resultado.next()){
+                idSala = resultado.getInt("idSala");
+                nombreSala = resultado.getString("nombre");
+                filas = resultado.getInt("filas");
+                columnas = resultado.getInt("columnas");
+
+                newSala = new Sala(idSala, nombreSala, filas, columnas);
+            }
+            resultado.close();
+        } catch (SQLException e) {
+            System.out.println("Error a la hora de consultar la tabla");
+            System.out.println(e.getLocalizedMessage());
+            return null;
+        }
+        closeConection(conexion);
+        return newSala;
     }
 }
