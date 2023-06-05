@@ -11,11 +11,6 @@ import java.util.ArrayList;
 import static model.dbconnection.closeConection;
 
 public class salasModel {
-    public static void main(String[] args) {
-        Sala test = getSala(1);
-        System.out.println(test.getNombre_sala());
-    }
-
     /**
      * Método para consultar la lista de salas de un cine
      * @param idCine el id del cine a consultar

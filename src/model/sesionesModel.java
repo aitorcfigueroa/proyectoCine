@@ -22,14 +22,6 @@ import static model.peliculasModel.getPelicula;
 import static model.salasModel.getListaSalas;
 
 public class sesionesModel {
-    public static void main(String[] args) {
-        Sesion sesionesCine = getSesion(1);
-        putSesion(1, sesionesCine.getButacas());
-        /*System.out.println(sesionesCine.get(0).getButacas().get("A"));
-        System.out.println(sesionesCine.get(0).getButacas().get("A").set(2, true));
-        System.out.println(sesionesCine.get(0).getButacas().get("A"));*/
-    }
-
     /**
      * Método para recuperar la lista de sesiones disponibles
      * @param nombre Nombre del cine en el que se busca.
@@ -128,9 +120,7 @@ public class sesionesModel {
                 hora = LocalTime.parse(resultado.getString("hora"));
 
                 String sitios = resultado.getString("butacas");
-                System.out.println(sitios);
                 ObjectMapper objectMapper = new ObjectMapper();
-
                 butacas = objectMapper.readValue(sitios, Map.class);
 
                 newSesion = new Sesion(idSesion, idSala, pelicula, fechaBD, hora, butacas);
