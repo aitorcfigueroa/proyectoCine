@@ -105,6 +105,7 @@ public class Inicio extends JFrame{
 
         //Cargamos la imagen lateral, que vamos a usar en ambos laterales
         ImageIcon lateralIcon = new ImageIcon(".\\resources\\lateral2.png");
+
         JLabel lateralLabelLeft = new JLabel(lateralIcon);
         JLabel lateralLabelRight = new JLabel(lateralIcon);
 
@@ -222,6 +223,7 @@ public class Inicio extends JFrame{
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
+
                 sesionesFrame.setVisible(true);
             }
         });

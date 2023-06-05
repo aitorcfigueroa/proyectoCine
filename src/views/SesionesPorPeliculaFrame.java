@@ -50,7 +50,6 @@ public class SesionesPorPeliculaFrame extends JFrame {
             panelHorarios.setLayout(new FlowLayout(FlowLayout.CENTER));
             panelHorarios.setBorder(BorderFactory.createEmptyBorder(10,0,0,0));
 
-
             for (Sesion sesion: sesionPorSala.getSesiones()) {
                 String hora = sesion.getHora().toString();
                 JButton botonHora = new JButton(hora);
@@ -63,6 +62,7 @@ public class SesionesPorPeliculaFrame extends JFrame {
                         asientosFrame.setVisible(true);
                     }
                 });
+
             }
 
             int edad = pelicula.getEdad();
@@ -93,9 +93,6 @@ public class SesionesPorPeliculaFrame extends JFrame {
                     panelPelicula.setToolTipText(datosPelicula);
                 }
             });
-
-
-
         }
 
         return peliculasPanel;

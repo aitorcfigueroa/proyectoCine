@@ -36,6 +36,7 @@ public class RegistroUsuarioFrame  extends JFrame{
 
         //Añadimos la imagen lateral que vamos a usar en ambos laterales de la ventana
         ImageIcon lateralIcon = new ImageIcon(".\\resources\\lateral2.png");
+
         JLabel lateralLabelLeft = new JLabel(lateralIcon);
         JLabel lateralLabelRight = new JLabel(lateralIcon);
 
@@ -360,6 +361,7 @@ public class RegistroUsuarioFrame  extends JFrame{
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
+
                 sesionesFrame.setVisible(true);
             }
         });

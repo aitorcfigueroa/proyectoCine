@@ -278,6 +278,7 @@ public class CarteleraFrame extends JFrame {
         previousButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 currentIndex = (currentIndex - 1 + carteles.size()) % carteles.size();
                 updateImage(imageLabel, ventana);
             }
@@ -293,7 +294,9 @@ public class CarteleraFrame extends JFrame {
         nextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 currentIndex = (currentIndex + 1) % carteles.size();
+
                 updateImage(imageLabel, ventana);
             }
         });
@@ -316,7 +319,9 @@ public class CarteleraFrame extends JFrame {
         timer = new Timer(SLIDE_DELAY, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 currentIndex = (currentIndex + 1) % carteles.size();
+
                 updateImage(imageLabel, ventana);
             }
         });
@@ -329,10 +334,12 @@ public class CarteleraFrame extends JFrame {
      */
     private static void updateImage(JLabel imageLabel, JFrame ventana) {
         //Obtenemos la ruta de la imagen actual
+
         String imagePath = carteles.get(currentIndex);
 
         try {
             BufferedImage originalImage = ImageIO.read(new URL(imagePath)); //Se lee la imagen original desde el archivo
+
 
             //Obtenemos las dimensiones de la ventana principal
             int windowWidth = ventana.getWidth();

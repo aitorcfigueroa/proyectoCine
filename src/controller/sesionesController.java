@@ -5,6 +5,7 @@ import clases.SesionesPorSala;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+
 import java.util.Map;
 
 import static java.lang.Integer.parseInt;
@@ -29,6 +30,7 @@ public class sesionesController {
      * @return ArrayList con la lista de sesiones para el día elegido
      */
     public static ArrayList<SesionesPorSala> sesionesCtrl(String cine, LocalDate fecha) {
+
         if (fecha == null) {
             fecha = LocalDate.now();
         }

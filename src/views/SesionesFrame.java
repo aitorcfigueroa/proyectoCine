@@ -116,6 +116,7 @@ public class SesionesFrame extends JFrame {
 
         //Cargamos la imagen que se va a utilizar en ambos laterales de la ventana
         ImageIcon lateralIcon = new ImageIcon(".\\resources\\lateral2.png");
+
         //Creamos un panel BorderLayout para poder organizar los componentes
         JPanel contentPanel = new JPanel(new BorderLayout());
 
