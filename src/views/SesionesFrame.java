@@ -19,7 +19,7 @@ public class SesionesFrame extends JFrame {
         getContentPane().setBackground(Color.DARK_GRAY); //color de fondo del contenido de la ventana
 
         //Carga de la fuente Montserrat-Medium
-        Font montserratMedium = loadFont("./resources/Montserrat-Medium.ttf");
+        Font montserratMedium = loadFont(".\\resources\\Montserrat-Medium.ttf");
 
         //Se establece la fuente para el proyecto
         setUIFont(new FontUIResource(montserratMedium));
@@ -115,7 +115,8 @@ public class SesionesFrame extends JFrame {
         setJMenuBar(menuBar);
 
         //Cargamos la imagen que se va a utilizar en ambos laterales de la ventana
-        ImageIcon lateralIcon = new ImageIcon("./resources/lateral2.png");
+        ImageIcon lateralIcon = new ImageIcon(".\\resources\\lateral2.png");
+
         //Creamos un panel BorderLayout para poder organizar los componentes
         JPanel contentPanel = new JPanel(new BorderLayout());
 

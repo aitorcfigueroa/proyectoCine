@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import static model.dbconnection.closeConection;
 
-public class cines {
+public class cinesModel {
     /**
      * Método para recuperar la lista con los nombres de los cines
      * @return ArrayList con los nombres de los cines disponibles.

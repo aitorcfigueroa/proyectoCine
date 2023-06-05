@@ -17,16 +17,11 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import static model.dbconnection.closeConection;
-import static model.cines.getCine;
+import static model.cinesModel.getCine;
 import static model.peliculasModel.getPelicula;
-import static model.salas.getListaSalas;
+import static model.salasModel.getListaSalas;
 
 public class sesionesModel {
-    public static void main(String[] args) {
-        ArrayList<Sesion> sesionesCine = getListaSesiones("Castelao", LocalDate.parse("2023-05-14"));
-        System.out.println(sesionesCine);
-    }
-
     /**
      * Método para recuperar la lista de sesiones disponibles
      * @param nombre Nombre del cine en el que se busca.
@@ -89,5 +84,98 @@ public class sesionesModel {
         }
         closeConection(conexion);
         return sesionArrayList;
+    }
+
+    /**
+     * Método para recuparar una sesión
+     * @param id id de la sesión
+     * @return una sesión
+     */
+    public static Sesion getSesion(int id) {
+        Sesion newSesion = null;
+        Connection conexion = dbconnection.conexion();
+        Statement seleccion = null;
+        String texto_seleccion = "select * from sesiones where idSesion=" + id;
+        ResultSet resultado = null;
+        int idSesion;
+        int idSala;
+        int idPelicula;
+        Pelicula pelicula;
+        LocalDate fechaBD;
+        LocalTime hora;
+        Map butacas;
+
+        try {
+            assert conexion != null;
+            seleccion = conexion.createStatement();
+            resultado = seleccion.executeQuery(texto_seleccion);
+            while(resultado.next()){
+                idSesion = resultado.getInt("idSesion");
+                idSala = resultado.getInt("idSala");
+                idPelicula = resultado.getInt("idPelicula");
+
+                pelicula = getPelicula(idPelicula);
+
+                fechaBD = LocalDate.parse(resultado.getString("fecha"));
+                hora = LocalTime.parse(resultado.getString("hora"));
+
+                String sitios = resultado.getString("butacas");
+                ObjectMapper objectMapper = new ObjectMapper();
+                butacas = objectMapper.readValue(sitios, Map.class);
+
+                newSesion = new Sesion(idSesion, idSala, pelicula, fechaBD, hora, butacas);
+            }
+            resultado.close();
+        } catch (SQLException e) {
+            System.out.println("Error a la hora de consultar la tabla");
+            System.out.println(e.getLocalizedMessage());
+            return null;
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+        closeConection(conexion);
+        return newSesion;
+    }
+
+    /**
+     * Modelo para actualizar las butacas de una sesión
+     * @param id identificador de la sesión
+     * @param butacas mapa con todas las butacas de la sesión actualizadas
+     * @return true si se actualizan correctamente o false si existe algún error al actualizarlas
+     */
+    public static Boolean putSesion(int id, Map<String, ArrayList<Boolean>> butacas) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        String cadenaButacas = null;
+
+        try {
+            cadenaButacas = objectMapper.writeValueAsString(butacas);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+
+        Connection conexion = dbconnection.conexion();
+        Statement consulta = null;
+        String texto_update = "update sesiones set butacas='" + cadenaButacas + "' where idSesion=" + id;
+        Integer resultado = null;
+
+        try {
+            assert conexion != null;
+            consulta = conexion.createStatement();
+            resultado = consulta.executeUpdate(texto_update);
+
+        } catch (SQLException e) {
+            System.out.println("Error a la hora de consultar la tabla");
+            System.out.println(e.getLocalizedMessage());
+        }
+
+        closeConection(conexion);
+
+        if (resultado == 1) {
+            System.out.println("Base de datos actualizada con éxito");
+            return true;
+        } else {
+            System.out.println("Error al actualizar la base de datos");
+            return false;
+        }
     }
 }

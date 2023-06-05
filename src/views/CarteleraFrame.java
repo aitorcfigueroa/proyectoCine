@@ -11,18 +11,15 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+
+import static controller.peliculasController.cartelesCtrl;
 
 public class CarteleraFrame extends JFrame {
 
     //Array que almacena las rutas de las imágenes
-    private static final String[] IMAGE_PATHS = {
-            "../resources/peli1.png",
-            "../resources/peli2.png",
-            "../resources/peli3.png",
-            "../resources/peli4.png",
-            "../resources/peli5.png",
-            "../resources/peli6.png"
-    };
+    private static final ArrayList<String> carteles = cartelesCtrl();
 
     private static final int SLIDE_DELAY = 2400; //Tiempo para el cambio de dispositivas
 
@@ -39,7 +36,7 @@ public class CarteleraFrame extends JFrame {
         ventana.setLayout(new BorderLayout());
 
         //Carga de la fuente Montserrat-Medium
-        Font montserratMedium = loadFont("../resources/Montserrat-Medium.ttf");
+        Font montserratMedium = loadFont(".\\resources\\Montserrat-Medium.ttf");
 
         //Se establece la fuente para el proyecto
         setUIFont(new FontUIResource(montserratMedium));
@@ -104,6 +101,15 @@ public class CarteleraFrame extends JFrame {
             }
         });
 
+        // Agregar ActionListener al labelComprarEntradas
+        labelComprarEntradas.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // Abrir la ventana SesionesFrame al hacer clic en "Comprar entradas"
+                abrirVentanaSesiones();
+            }
+        });
+
         //Cursor de la mano para los botones de menú
         labelInicio.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         labelCartelera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -119,7 +125,7 @@ public class CarteleraFrame extends JFrame {
         ventana.setJMenuBar(menuBar);
 
         //Carga imagen para laterales
-        ImageIcon lateralIcon = new ImageIcon("../resources/lateral2.png");
+        ImageIcon lateralIcon = new ImageIcon(".\\resources\\lateral2.png");
 
         //Añadimos enncabezado
 
@@ -233,7 +239,12 @@ public class CarteleraFrame extends JFrame {
     private static void abrirVentanaSesiones() {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                SesionesFrame sesionesFrame = new SesionesFrame();
+                SesionesFrame sesionesFrame = null;
+                try {
+                    sesionesFrame = new SesionesFrame();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
                 sesionesFrame.setVisible(true);
             }
         });
@@ -267,7 +278,8 @@ public class CarteleraFrame extends JFrame {
         previousButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                currentIndex = (currentIndex - 1 + IMAGE_PATHS.length) % IMAGE_PATHS.length;
+
+                currentIndex = (currentIndex - 1 + carteles.size()) % carteles.size();
                 updateImage(imageLabel, ventana);
             }
         });
@@ -282,7 +294,9 @@ public class CarteleraFrame extends JFrame {
         nextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                currentIndex = (currentIndex + 1) % IMAGE_PATHS.length;
+
+                currentIndex = (currentIndex + 1) % carteles.size();
+
                 updateImage(imageLabel, ventana);
             }
         });
@@ -305,7 +319,9 @@ public class CarteleraFrame extends JFrame {
         timer = new Timer(SLIDE_DELAY, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                currentIndex = (currentIndex + 1) % IMAGE_PATHS.length;
+
+                currentIndex = (currentIndex + 1) % carteles.size();
+
                 updateImage(imageLabel, ventana);
             }
         });
@@ -318,10 +334,12 @@ public class CarteleraFrame extends JFrame {
      */
     private static void updateImage(JLabel imageLabel, JFrame ventana) {
         //Obtenemos la ruta de la imagen actual
-        String imagePath = IMAGE_PATHS[currentIndex];
+
+        String imagePath = carteles.get(currentIndex);
 
         try {
-            BufferedImage originalImage = ImageIO.read(new File(imagePath)); //Se lee la imagen original desde el archivo
+            BufferedImage originalImage = ImageIO.read(new URL(imagePath)); //Se lee la imagen original desde el archivo
+
 
             //Obtenemos las dimensiones de la ventana principal
             int windowWidth = ventana.getWidth();

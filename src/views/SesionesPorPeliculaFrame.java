@@ -7,17 +7,19 @@ import clases.SesionesPorSala;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import static controller.sesionesController.sesiones;
+import static controller.sesionesController.sesionesCtrl;
 
 public class SesionesPorPeliculaFrame extends JFrame {
     public static JPanel peliculasPanel() throws IOException {
-        ArrayList<SesionesPorSala> sesionesPorSalas = sesiones("Castelao", LocalDate.parse("2023-05-14"));
+        ArrayList<SesionesPorSala> sesionesPorSalas = sesionesCtrl("Castelao", LocalDate.parse("2023-05-14"));
         JPanel peliculasPanel = new JPanel(new GridLayout(3, 2, 20, 20)); //Creamos un panel para organizar las peliculas en 3 filas y dos columnas con espacio horizontal y vertical
         peliculasPanel.setBackground(Color.DARK_GRAY); //Color de fondo del panel
 
@@ -53,6 +55,14 @@ public class SesionesPorPeliculaFrame extends JFrame {
                 JButton botonHora = new JButton(hora);
                 botonHora.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 panelHorarios.add(botonHora);
+                botonHora.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        AsientosFrame asientosFrame = new AsientosFrame(sesion);
+                        asientosFrame.setVisible(true);
+                    }
+                });
+
             }
 
             int edad = pelicula.getEdad();

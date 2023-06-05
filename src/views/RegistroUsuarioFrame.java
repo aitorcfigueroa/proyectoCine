@@ -29,13 +29,14 @@ public class RegistroUsuarioFrame  extends JFrame{
         setLayout(new BorderLayout());
 
         //Cargamos la fuente Montserrat-Medium desde un archivo .ttf
-        Font montserratMedium = loadFont("../resources/Montserrat-Medium.ttf");
+        Font montserratMedium = loadFont(".\\resources\\Montserrat-Medium.ttf");
 
         //Establecemos la fuente Montserrat-Medium como la fuente predeterminada para el proyecto
         setUIFont(new FontUIResource(montserratMedium));
 
         //Añadimos la imagen lateral que vamos a usar en ambos laterales de la ventana
-        ImageIcon lateralIcon = new ImageIcon("../resources/lateral2.png");
+        ImageIcon lateralIcon = new ImageIcon(".\\resources\\lateral2.png");
+
         JLabel lateralLabelLeft = new JLabel(lateralIcon);
         JLabel lateralLabelRight = new JLabel(lateralIcon);
 
@@ -354,7 +355,13 @@ public class RegistroUsuarioFrame  extends JFrame{
     private static void abrirVentanaSesiones() {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                SesionesFrame sesionesFrame = new SesionesFrame();
+                SesionesFrame sesionesFrame = null;
+                try {
+                    sesionesFrame = new SesionesFrame();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
                 sesionesFrame.setVisible(true);
             }
         });
