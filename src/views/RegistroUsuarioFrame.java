@@ -11,6 +11,10 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
+
+/**
+ * La clase RegistroUsuarioFrame representa la ventana de registro de usuario de la aplicación, para poder proporcionar nombre, correo electrónico y contraseña
+ */
 public class RegistroUsuarioFrame  extends JFrame{
     private JPanel headerPanel;
     private JPanel panelIzquierdo;
@@ -135,6 +139,11 @@ public class RegistroUsuarioFrame  extends JFrame{
         setSize(1600, 900);
         setLocationRelativeTo(null); //Centrar la ventana en la pantalla
     }
+
+    /**
+     * Creación de la barra de menú
+     * @return menuBar
+     */
     private JMenuBar createMenuBar() {
         JMenuBar menuBar = new JMenuBar();
 
@@ -221,6 +230,11 @@ public class RegistroUsuarioFrame  extends JFrame{
 
         return menuBar;
     }
+
+    /**
+     * Creación del panel del formulario
+     * @return formularioPanel
+     */
     private JPanel createFormularioPanel() {
         JPanel formularioPanel = new JPanel(new GridBagLayout());
         formularioPanel.setOpaque(false);
@@ -273,7 +287,11 @@ public class RegistroUsuarioFrame  extends JFrame{
 
         return formularioPanel;
     }
-    //Método para cargar la fuente desde un archivo .ttf
+    /**
+     * Método para cargar la fuente desde un archivo .ttf
+     * @param fontFileName
+     * @return
+     */
     private Font loadFont(String fontFileName) {
         try {
             return Font.createFont(Font.TRUETYPE_FONT, new File(fontFileName)).deriveFont(Font.PLAIN, 14);
@@ -283,7 +301,10 @@ public class RegistroUsuarioFrame  extends JFrame{
         }
     }
 
-    //Método para establecer la fuente predeterminada para el proyecto en su conjunto
+    /**
+     * Método para establecer la fuente predeterminada para el proyecto en su conjunto
+     * @param font
+     */
     private static void setUIFont(FontUIResource font) {
         // Configurar la fuente para todos los componentes de la interfaz de usuario
         UIManager.put("Button.font", font);

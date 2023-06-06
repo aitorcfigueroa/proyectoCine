@@ -12,6 +12,9 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * La clase LoginFrame representa la ventana de inicio de sesión de la aplicación para iniciar sesión con correo electrónico y contraseña
+ */
 public class LoginFrame extends JFrame {
     private JPanel headerPanel;
     private JPanel panelIzquierdo;
@@ -139,6 +142,10 @@ public class LoginFrame extends JFrame {
 
     }
 
+    /**
+     * Creación de la barra de menú
+     * @return menuBar
+     */
     private JMenuBar createMenuBar() {
         JMenuBar menuBar = new JMenuBar();
 
@@ -226,6 +233,11 @@ public class LoginFrame extends JFrame {
 
         return menuBar;
     }
+
+    /**
+     * Creación del panel del formulario
+     * @return formularioPanel
+     */
     private JPanel createFormularioPanel() {
         JPanel formularioPanel = new JPanel(new GridBagLayout());
         formularioPanel.setOpaque(false);
@@ -264,7 +276,11 @@ public class LoginFrame extends JFrame {
         return formularioPanel;
     }
 
-    //Método para cargar la fuente desde un archivo .ttf
+    /**
+     * Método para cargar la fuente desde un archivo .ttf
+     * @param fontFileName
+     * @return
+     */
     private Font loadFont(String fontFileName) {
         try {
             return Font.createFont(Font.TRUETYPE_FONT, new File(fontFileName)).deriveFont(Font.PLAIN, 14);
@@ -274,9 +290,11 @@ public class LoginFrame extends JFrame {
         }
     }
 
-    //Método para establecer la fuente predeterminada para el proyecto en su conjunto
+    /**
+     * Método para establecer la fuente predeterminada para el proyecto en su conjunto
+     * @param font
+     */
     private static void setUIFont(FontUIResource font) {
-        // Configurar la fuente para todos los componentes de la interfaz de usuario
         UIManager.put("Button.font", font);
         UIManager.put("ToggleButton.font", font);
         UIManager.put("RadioButton.font", font);
@@ -310,18 +328,31 @@ public class LoginFrame extends JFrame {
         UIManager.put("Tree.font", font);
     }
 
+    /**
+     * Método para mostrar la ventana de Inicio
+     */
     private void mostrarVentanaInicio() {
         Inicio inicio = new Inicio();
         inicio.setVisible(true);
         dispose(); //Cerrar la ventana
     }
-
+    /**
+     * Abre la ventana de la cartelera de películas.
+     * Este método crea una instancia de la cartelera de películas y lo muestra en la interfaz de usuario.
+     * La cartelera proporciona una visualización de las películas disponibles.
+     */
     private static void abrirCarteleraFrame() {
         CarteleraFrame carteleraFrame = new CarteleraFrame();
         carteleraFrame.mostrarVentana();
     }
 
     //abrir ventana con sesiones al hacer click en comprar entradas
+
+    /**
+     * Abre la ventana de SesionesFrame para mostrar las sesiones disponibles.
+     * Se ejecuta en el hilo de despacho de eventos de Swing para garantizar la
+     * sincronización correcta con la interfaz de usuario.
+     */
     private static void abrirVentanaSesiones() {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
@@ -337,7 +368,10 @@ public class LoginFrame extends JFrame {
         });
     }
 
-
+    /**
+     * punto de entrada para la ventana de inicio de sesión
+     * @param args
+     */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
