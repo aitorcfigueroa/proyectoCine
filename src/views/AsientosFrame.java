@@ -16,11 +16,11 @@ import java.util.Map;
 
 import static controller.sesionesController.updateSesionCtrl;
 
+
 /**
  * La clase AsientosFrame representa la ventana de selección de asientos
  * Permite seleccionar asientos para una sesión en concreto y guardar la información relativa a la sesión en un archivo txt.
  */
-
 public class AsientosFrame extends JFrame {
 
     private JButton[][] asientos; //matriz para cuadrícula de botones
@@ -231,6 +231,7 @@ public class AsientosFrame extends JFrame {
         });
     }
 
+
     /**
      * Método para cargar la fuente desde un archivo .ttf
      * @param fontFileName
@@ -244,6 +245,7 @@ public class AsientosFrame extends JFrame {
             return null;
         }
     }
+
 
     /**
      * Método para establecer la fuente predeterminada para el proyecto en su conjunto

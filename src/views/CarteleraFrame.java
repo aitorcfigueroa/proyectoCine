@@ -23,6 +23,7 @@ import static controller.peliculasController.cartelesCtrl;
 public class CarteleraFrame extends JFrame {
 
     //ArrayList que almacena las rutas de las imágenes
+
     private static final ArrayList<String> carteles = cartelesCtrl();
 
     private static final int SLIDE_DELAY = 2400; //Tiempo para el cambio de dispositivas

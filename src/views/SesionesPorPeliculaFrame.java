@@ -21,6 +21,7 @@ public class SesionesPorPeliculaFrame extends JFrame {
     public static JPanel peliculasPanel() throws IOException {
         ArrayList<SesionesPorSala> sesionesPorSalas = sesionesCtrl("Castelao", LocalDate.parse("2023-05-14"));
         JPanel peliculasPanel = new JPanel(new GridLayout(2, 2, 20, 20)); //Creamos un panel para organizar las peliculas en 3 filas y dos columnas con espacio horizontal y vertical
+
         peliculasPanel.setBackground(Color.DARK_GRAY); //Color de fondo del panel
 
         for (SesionesPorSala sesionPorSala: sesionesPorSalas) {
