@@ -152,8 +152,6 @@ public class AsientosFrame extends JFrame {
         //ActionListener para el botón cancelar
         //Crea una instancia de la clase inicio y muestra su ventana
         cancelarButton.addActionListener(e -> {
-            Inicio inicioFrame = new Inicio();
-            inicioFrame.setVisible(true);
             dispose(); //cierra la ventana actual
         });
 
@@ -177,6 +175,7 @@ public class AsientosFrame extends JFrame {
 
         setSize(1000, 800); //tamaño ventana
         setVisible(true); //visibilidad ventana
+        setLocationRelativeTo(null);
 
         /**
          * ActionListener para el botón "Comprar".

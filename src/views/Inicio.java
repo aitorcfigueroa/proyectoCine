@@ -150,6 +150,8 @@ public class Inicio extends JFrame{
         //Hacemos visible la ventana
         setVisible(true);
 
+        setLocationRelativeTo(null);
+
 
         // Agregar ActionListener al labelComprarEntradas
         labelComprarEntradas.addMouseListener(new MouseAdapter() {

@@ -18,7 +18,7 @@ public class SesionesFrame extends JFrame {
     //Constructor
     public SesionesFrame() throws IOException {
         setTitle("CineScript"); //título de la ventana
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //acción para cerrar la ventana
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); //acción para cerrar la ventana
         getContentPane().setBackground(Color.DARK_GRAY); //color de fondo del contenido de la ventana
 
         //Carga de la fuente Montserrat-Medium
