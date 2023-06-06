@@ -6,6 +6,11 @@ import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * La clase Incio representa la ventana de inicio en la aplicación CineSript.
+ * De esta forma obtenemos la interfaz principal de navegación pudiendo explorar las diferentes opciones
+ */
+
 public class Inicio extends JFrame{
     public Inicio () {
         setTitle("CineScript");
@@ -163,7 +168,12 @@ public class Inicio extends JFrame{
         });
     }
 
-    //Método para cargar la fuente desde un archivo .ttf
+
+    /**
+     * Método para cargar la fuente desde un archivo .ttf
+     * @param fontFileName
+     * @return
+     */
     private static Font loadFont(String fontFileName) {
         try {
             return Font.createFont(Font.TRUETYPE_FONT, new File(fontFileName)).deriveFont(Font.PLAIN, 14);
@@ -173,7 +183,10 @@ public class Inicio extends JFrame{
         }
     }
 
-    //Método para establecer la fuente predeterminada para el proyecto en su conjunto
+    /**
+     * Método para establecer la fuente predeterminada para el proyecto en su conjunto
+     * @param font
+     */
     private static void setUIFont(FontUIResource font) {
         UIManager.put("Button.font", font);
         UIManager.put("ToggleButton.font", font);
@@ -227,12 +240,23 @@ public class Inicio extends JFrame{
         });
     }
 
+
+    /**
+     * Abre la ventana de la cartelera de películas.
+     * Este método crea una instancia de la cartelera de películas y lo muestra en la interfaz de usuario.
+     * La cartelera proporciona una visualización de las películas disponibles.
+     */
+
     private static void abrirCarteleraFrame() {
         CarteleraFrame carteleraFrame = new CarteleraFrame();
         carteleraFrame.mostrarVentana();
     }
 
-
+    /**
+     * Método que establece el punto de entrada de la aplicación
+     * Realiza una instancia de la ventana de inicio y la hace visible
+     * @param args
+     */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {

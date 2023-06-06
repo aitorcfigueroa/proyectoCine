@@ -16,9 +16,13 @@ import java.util.ArrayList;
 
 import static controller.peliculasController.cartelesCtrl;
 
+/**
+ * La clase CarteleraFrame representa la ventana principañ de la cartelera de películas disponibles
+ */
+
 public class CarteleraFrame extends JFrame {
 
-    //Array que almacena las rutas de las imágenes
+    //ArrayList que almacena las rutas de las imágenes
     private static final ArrayList<String> carteles = cartelesCtrl();
 
     private static final int SLIDE_DELAY = 2400; //Tiempo para el cambio de dispositivas
@@ -180,7 +184,11 @@ public class CarteleraFrame extends JFrame {
         ventana.setVisible(true); //visibilidad de la ventana
 
     }
-    //Método para cargar la fuente desde un archivo .ttf
+    /**
+     * Método para cargar la fuente desde un archivo .ttf
+     * @param fontFileName
+     * @return
+     */
     private static Font loadFont(String fontFileName) {
         try {
             return Font.createFont(Font.TRUETYPE_FONT, new File(fontFileName)).deriveFont(Font.PLAIN, 14);
@@ -190,7 +198,10 @@ public class CarteleraFrame extends JFrame {
         }
     }
 
-    //Método para establecer la fuente predeterminada para el proyecto en su conjunto
+    /**
+     * Método para establecer la fuente predeterminada para el proyecto en su conjunto
+     * @param font
+     */
     private static void setUIFont(FontUIResource font) {
         UIManager.put("Button.font", font);
         UIManager.put("ToggleButton.font", font);
@@ -234,7 +245,9 @@ public class CarteleraFrame extends JFrame {
     }
 
     /**
-     * Abre la ventana de sesiones en un hilo de eventos de Swing.
+     * Abre la ventana de SesionesFrame para mostrar las sesiones disponibles.
+     * Se ejecuta en el hilo de despacho de eventos de Swing para garantizar la
+     * sincronización correcta con la interfaz de usuario.
      */
     private static void abrirVentanaSesiones() {
         SwingUtilities.invokeLater(new Runnable() {

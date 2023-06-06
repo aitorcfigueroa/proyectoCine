@@ -10,6 +10,9 @@ import java.awt.event.MouseAdapter;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * La clase SesionesFrame representa la ventana de sesiones de la aplicación
+ */
 public class SesionesFrame extends JFrame {
 
     //Constructor
@@ -163,7 +166,12 @@ public class SesionesFrame extends JFrame {
         pack(); //Ajustamos la ventana según el contenido
         setLocationRelativeTo(null); //Centramos la ventana en la pantalla
     }
-    //Método para cargar la fuente desde un archivo .ttf
+
+    /**
+     * Método para cargar la fuente desde un archivo .ttf
+     * @param fontFileName
+     * @return
+     */
     private static Font loadFont(String fontFileName) {
         try {
             return Font.createFont(Font.TRUETYPE_FONT, new File(fontFileName)).deriveFont(Font.PLAIN, 14);
@@ -172,8 +180,10 @@ public class SesionesFrame extends JFrame {
             return null;
         }
     }
-
-    //Método para establecer la fuente predeterminada para el proyecto en su conjunto
+    /**
+     * Método para establecer la fuente predeterminada para el proyecto en su conjunto
+     * @param font
+     */
     private static void setUIFont(FontUIResource font) {
         UIManager.put("Button.font", font);
         UIManager.put("ToggleButton.font", font);
@@ -208,6 +218,10 @@ public class SesionesFrame extends JFrame {
         UIManager.put("Tree.font", font);
     }
 
+    /**
+     * Método para mostrar la ventana de Inicio
+     */
+
     private static void abrirVentanaInicio() {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
@@ -215,6 +229,12 @@ public class SesionesFrame extends JFrame {
             }
         });
     }
+
+    /**
+     * Abre la ventana de la cartelera de películas.
+     * Este método crea una instancia de la cartelera de películas y lo muestra en la interfaz de usuario.
+     * La cartelera proporciona una visualización de las películas disponibles.
+     */
 
     private static void abrirCarteleraFrame() {
         CarteleraFrame carteleraFrame = new CarteleraFrame();
