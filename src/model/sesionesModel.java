@@ -23,7 +23,7 @@ import static model.salasModel.getListaSalas;
 
 public class sesionesModel {
     /**
-     * Método para recuperar la lista de sesiones disponibles
+     * Modelo para recuperar la lista de sesiones disponibles
      * @param nombre Nombre del cine en el que se busca.
      * @param fecha Fecha que se busca.
      * @return lista de sesiones disponibles.
@@ -87,7 +87,7 @@ public class sesionesModel {
     }
 
     /**
-     * Método para recuparar una sesión
+     * Modelo para recuparar una sesión
      * @param id id de la sesión
      * @return una sesión
      */

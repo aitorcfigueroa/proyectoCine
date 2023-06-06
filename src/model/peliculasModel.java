@@ -13,8 +13,8 @@ import static model.dbconnection.closeConection;
 
 public class peliculasModel {
     /**
-     * Método para recuperar una película.
-     * @param id el id de la película
+     * Modelo para recuperar una película.
+     * @param id el identificador de la película
      * @return devuelve una película si la encuentra o null.
      */
     public static Pelicula getPelicula(int id) {

@@ -12,7 +12,7 @@ import static model.dbconnection.closeConection;
 
 public class cinesModel {
     /**
-     * Método para recuperar la lista con los nombres de los cines
+     * Modelo para recuperar la lista con los nombres de los cines
      * @return ArrayList con los nombres de los cines disponibles.
      */
     public static ArrayList<String> getListaCines() {
@@ -40,7 +40,7 @@ public class cinesModel {
     }
 
     /**
-     * Método para recuperar los datos de un cine.
+     * Modelo para recuperar los datos de un cine.
      * @param cine nombre del cine
      * @return un objeto de la clase Cine.
      */
