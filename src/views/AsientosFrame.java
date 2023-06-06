@@ -16,6 +16,11 @@ import java.util.Map;
 
 import static controller.sesionesController.updateSesionCtrl;
 
+
+/**
+ * La clase AsientosFrame representa la ventana de selección de asientos
+ * Permite seleccionar asientos para una sesión en concreto y guardar la información relativa a la sesión en un archivo txt.
+ */
 public class AsientosFrame extends JFrame {
 
     private JButton[][] asientos; //matriz para cuadrícula de botones
@@ -25,6 +30,11 @@ public class AsientosFrame extends JFrame {
     private ArrayList<String> asientosSeleccionados;
     private Sesion sesion;
     //constructor
+
+    /**
+     * Constructor de la clase AsientosFrame
+     * @param sesion sesión en la que se seleccionarán los asientos
+     */
     public AsientosFrame(Sesion sesion){
         this.sesion=sesion;
         setTitle("Selección de Asientos"); //título de la ventana
@@ -142,8 +152,6 @@ public class AsientosFrame extends JFrame {
         //ActionListener para el botón cancelar
         //Crea una instancia de la clase inicio y muestra su ventana
         cancelarButton.addActionListener(e -> {
-            Inicio inicioFrame = new Inicio();
-            inicioFrame.setVisible(true);
             dispose(); //cierra la ventana actual
         });
 
@@ -167,6 +175,7 @@ public class AsientosFrame extends JFrame {
 
         setSize(1000, 800); //tamaño ventana
         setVisible(true); //visibilidad ventana
+        setLocationRelativeTo(null);
 
         /**
          * ActionListener para el botón "Comprar".
@@ -222,7 +231,12 @@ public class AsientosFrame extends JFrame {
         });
     }
 
-    //Método para cargar la fuente desde un archivo .ttf
+
+    /**
+     * Método para cargar la fuente desde un archivo .ttf
+     * @param fontFileName
+     * @return
+     */
     private static Font loadFont(String fontFileName) {
         try {
             return Font.createFont(Font.TRUETYPE_FONT, new File(fontFileName)).deriveFont(Font.PLAIN, 14);
@@ -232,7 +246,11 @@ public class AsientosFrame extends JFrame {
         }
     }
 
-    //Método para establecer la fuente predeterminada para el proyecto en su conjunto
+
+    /**
+     * Método para establecer la fuente predeterminada para el proyecto en su conjunto
+     * @param font
+     */
     private static void setUIFont(FontUIResource font) {
         UIManager.put("Button.font", font);
         UIManager.put("ToggleButton.font", font);

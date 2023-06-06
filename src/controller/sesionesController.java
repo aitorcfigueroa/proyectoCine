@@ -13,7 +13,7 @@ import static model.sesionesModel.*;
 
 public class sesionesController {
     /**
-     * Método para recuperar una sesión
+     * Controlador para recuperar una sesión
      * @param id identificador de la sesión que se quiere recuperar
      * @return una sesión
      */
@@ -24,7 +24,7 @@ public class sesionesController {
     }
 
     /**
-     * Método para recuperar las sesiones de un día
+     * Controlador para recuperar las sesiones de un día
      * @param cine nombre del cine
      * @param fecha día en el que se quiere buscar sesiones
      * @return ArrayList con la lista de sesiones para el día elegido

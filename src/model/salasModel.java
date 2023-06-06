@@ -12,7 +12,7 @@ import static model.dbconnection.closeConection;
 
 public class salasModel {
     /**
-     * Método para consultar la lista de salas de un cine
+     * Modelo para consultar la lista de salas de un cine
      * @param idCine el id del cine a consultar
      * @return lista de salas
      */
